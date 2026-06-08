@@ -2,11 +2,13 @@ import Link from "next/link";
 import { articles } from "@/lib/articles";
 
 export default function Home() {
-  const featured = [...articles].sort((a, b) => {
-    const dateA = a.date ? new Date(a.date).getTime() : 0;
-    const dateB = b.date ? new Date(b.date).getTime() : 0;
-    return dateB - dateA;
-  });
+  const featured = [...articles]
+    .sort((a, b) => {
+      const dateA = a.date ? new Date(a.date).getTime() : 0;
+      const dateB = b.date ? new Date(b.date).getTime() : 0;
+      return dateB - dateA;
+    })
+    .slice(0, 2);
 
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
@@ -52,6 +54,14 @@ export default function Home() {
                   <p className="mt-4 text-base leading-7 text-[var(--color-secondary)]">{article.summary}</p>
                 </Link>
               ))}
+            </div>
+            <div className="flex justify-end">
+              <Link
+                href="/artikler"
+                className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)] transition"
+              >
+                Se alle artikler →
+              </Link>
             </div>
           </section>
 
