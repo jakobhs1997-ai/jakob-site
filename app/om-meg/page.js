@@ -1,46 +1,43 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 
 const sections = [
   {
     id: "erfaring",
     title: "Erfaring",
-    summary: "Bred erfaring innen rådgivning, undervisning og prosjektarbeid.",
     details:
-      "Jeg har jobbet med rådgivende salg, undervisning og operativ drift, samtidig som jeg har bygget opp studentprosjekter og faglige nettverk. Blant annet har jeg vært butikkselger i John Henric, løpeinstruktør i SATS, vikarierende lærer i Nesodden kommune, og hovmester i Taste og View by Taste.",
+      "Medgrunnlegger og eventkoordinator i NJORD maritime studentforening (200+ medlemmer). Løpeinstruktør ved SATS. Deltaker i Kongsberg Gruppens Your Extreme 48-timers casekonkurranse (2018 og 2019). Tidligere butikkselger, hovmester og vikarierende lærer.",
   },
   {
     id: "utdanning",
     title: "Utdanning",
-    summary: "Dobbel bachelor i økonomi og statsvitenskap.",
     details:
-      "Jeg har en bachelor i økonomi og administrasjon fra OsloMet (2023–2026), og en bachelor i statsvitenskap fra NTNU (2018–2021). Bacheloroppgavene mine fokuserer på atferdsøkonomi, donoradferd og geopolitiske konsekvenser av kinesisk bistand.",
+      "Bachelor i økonomi og administrasjon, OsloMet (2023–2026). Bachelor i statsvitenskap, NTNU (2018–2021).",
   },
   {
     id: "ferdigheter",
     title: "Ferdigheter",
-    summary: "Praktiske og analytiske ferdigheter fra både prosjektarbeid og dataanalyse.",
     details:
-      "Jeg kombinerer relasjonsbygging og strategisk kommunikasjon med kvantitativ analyse. Nøkkelferdigheter inkluderer business development, stakeholder management, prosjektledelse, OLS-regresjon, kvantitativ analyse og god bruk av Microsoft 365.",
+      "Forretningsutvikling, relasjonsbygging, stakeholder management, strategisk kommunikasjon, prosjektledelse.",
   },
 ];
 
 export default function OmMegPage() {
-  const [openSection, setOpenSection] = useState(null);
-
-  const toggleSection = (id) => {
-    setOpenSection(openSection === id ? null : id);
-  };
-
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
-        <header className="border-b border-zinc-200 pb-8">
-          <p className="text-sm uppercase tracking-[0.3em] text-zinc-600">Om meg</p>
+        <header className="border-b border-[var(--color-border)] pb-8">
+          <div className="flex flex-col gap-2">
+            <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Om meg</p>
+            <nav>
+              <a href="/" className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)]">
+                ← Forsiden
+              </a>
+            </nav>
+          </div>
           <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-center">
-            <div className="flex-shrink-0 overflow-hidden rounded-full border border-zinc-200 bg-zinc-100" style={{ width: 150, height: 150 }}>
+            <div className="flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]" style={{ width: 150, height: 150 }}>
               <Image
                 src="/jakob.jpg"
                 alt="Jakob Hake-Steffensen"
@@ -50,58 +47,37 @@ export default function OmMegPage() {
               />
             </div>
             <div className="sm:max-w-2xl">
-              <h1 className="text-4xl font-serif font-semibold tracking-tight text-black sm:text-5xl">
+              <h1 className="text-4xl font-serif font-semibold tracking-tight sm:text-5xl">
                 Jakob Hake-Steffensen
               </h1>
-              <p className="mt-6 text-lg leading-8 text-zinc-700">
-                Jeg skriver om politikk, økonomi og samfunn med blikk for både analyse og mennesker. I arbeidet mitt prøver jeg å gjøre komplekse temaer mer forståelige, samtidig som jeg tar hensyn til praktiske konsekvenser.
+              <p className="mt-6 text-lg leading-8 text-[var(--color-secondary)]">
+                Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker det til å forstå hva som faktisk driver beslutninger — i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling, og er med på å drive NJORD maritime studentforening.
               </p>
-              <div className="mt-8">
-                <a
-                  href="/"
-                  className="inline-flex rounded-full border border-zinc-900 px-5 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100"
-                >
-                  Tilbake til forsiden
-                </a>
-              </div>
             </div>
           </div>
         </header>
 
-        <section className="mt-12 space-y-4">
-          {sections.map((section) => {
-            const isOpen = openSection === section.id;
-            return (
-              <div key={section.id} className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => toggleSection(section.id)}
-                  className="flex w-full items-center justify-between gap-4 p-6 text-left"
-                  aria-expanded={isOpen}
-                  aria-controls={`${section.id}-content`}
-                >
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.3em] text-zinc-600">{section.title}</p>
-                    <p className="mt-3 text-base leading-7 text-zinc-700">{section.summary}</p>
-                  </div>
-                  <span className="text-2xl font-semibold text-zinc-900">{isOpen ? "−" : "+"}</span>
-                </button>
-                {isOpen ? (
-                  <div id={`${section.id}-content`} className="border-t border-zinc-200 px-6 pb-6 text-zinc-700">
-                    <p className="pt-4 text-base leading-8">{section.details}</p>
-                  </div>
-                ) : null}
-              </div>
-            );
-          })}
+        <section className="mt-12 space-y-10">
+          {sections.map((section) => (
+            <div key={section.id}>
+              <h2 className="text-2xl font-serif font-semibold tracking-tight text-[var(--color-foreground)]">
+                {section.title}
+              </h2>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-secondary)]">
+                {section.details}
+              </p>
+            </div>
+          ))}
         </section>
 
-        <div className="mt-14 border-t border-zinc-200 pt-8">
+        <div className="mt-14 border-t border-[var(--color-border)] pt-8">
           <a
-            href="/cv.pdf"
-            className="text-sm font-medium text-black underline underline-offset-4 transition hover:text-zinc-900"
+            href="https://linkedin.com/in/jeycup/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)]"
           >
-            Last ned CV som PDF
+            Se LinkedIn-profil →
           </a>
         </div>
       </div>
