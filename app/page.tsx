@@ -2,7 +2,11 @@ import Link from "next/link";
 import { articles } from "@/lib/articles";
 
 export default function Home() {
-  const featured = articles;
+  const featured = [...articles].sort((a, b) => {
+    const dateA = a.date ? new Date(a.date).getTime() : 0;
+    const dateB = b.date ? new Date(b.date).getTime() : 0;
+    return dateB - dateA;
+  });
 
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
@@ -51,12 +55,6 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="about" className="max-w-3xl space-y-4">
-            <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Om meg</p>
-            <p className="text-base leading-8 text-[var(--color-secondary)]">
-              Jeg er opptatt av politikk, økonomi og samfunn, og jeg bruker denne plattformen til å dele observasjoner og analyser. Her samler jeg artikler og tekster som gir rom for refleksjon uten støy.
-            </p>
-          </section>
         </main>
       </div>
     </div>

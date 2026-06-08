@@ -51,7 +51,7 @@ export default function OmMegPage() {
               <div className="mt-6">
                 <a
                   href="/"
-                  className="inline-flex items-center px-4 py-2 rounded-md border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] transition"
+                  className="inline-flex items-center px-4 py-2 rounded-md border border-[1px] border-[color:var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] transition"
                 >
                   Tilbake til forsiden
                 </a>
@@ -72,17 +72,6 @@ export default function OmMegPage() {
             </div>
           ))}
         </section>
-
-        <div className="mt-14 border-t border-[var(--color-border)] pt-8">
-          <a
-            href="https://linkedin.com/in/jeycup/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)]"
-          >
-            Se LinkedIn-profil →
-          </a>
-        </div>
       </div>
     </div>
   );

@@ -1,16 +1,18 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles } from "@/lib/articles";
 
 interface ArticlePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const dynamic = "force-dynamic";
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const article = articles.find((item) => item.slug === params.slug);
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const resolvedParams = await params;
+  const article = articles.find((item) => item.slug === resolvedParams.slug);
   if (!article) {
     notFound();
   }
@@ -26,6 +28,14 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           {article.date ? (
             <p className="mt-3 text-sm text-[var(--color-secondary)]">{article.date}</p>
           ) : null}
+          <div className="mt-6">
+            <Link
+              href="/"
+              className="inline-flex items-center px-4 py-2 rounded-md border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] transition"
+            >
+              Tilbake til forsiden
+            </Link>
+          </div>
         </div>
 
         <article className="space-y-6">
