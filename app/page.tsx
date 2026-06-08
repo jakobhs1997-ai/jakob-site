@@ -1,4 +1,9 @@
+import Link from "next/link";
+import { articles } from "@/lib/articles";
+
 export default function Home() {
+  const featured = articles;
+
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
@@ -32,29 +37,17 @@ export default function Home() {
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
-              <article className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
-                <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Placeholder</p>
-                <h3 className="mt-4 text-2xl font-serif font-semibold">Hva betyr Norges rolle i EUs energiomstilling?</h3>
-                <p className="mt-4 text-base leading-7 text-[var(--color-secondary)]">
-                  En kort introduksjon til hvordan energipolitikk og økonomi møtes i nordisk kontekst.
-                </p>
-              </article>
-
-              <article className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
-                <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Placeholder</p>
-                <h3 className="mt-4 text-2xl font-serif font-semibold">Demokrati og markedsøkonomi: hva kan vi lære?</h3>
-                <p className="mt-4 text-base leading-7 text-[var(--color-secondary)]">
-                  Refleksjoner om politiske tendenser og økonomiske rammeverk i dagens samfunn.
-                </p>
-              </article>
-
-              <article className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
-                <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Placeholder</p>
-                <h3 className="mt-4 text-2xl font-serif font-semibold">Hvordan skrive tydelig om kompliserte temaer</h3>
-                <p className="mt-4 text-base leading-7 text-[var(--color-secondary)]">
-                  En tekst om formidling, oppmerksomhet og hvordan jeg jobber med idéer.
-                </p>
-              </article>
+              {featured.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/artikler/${article.slug}`}
+                  className="block rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8 transition hover:border-[var(--color-accent)] hover:bg-[#20232a]"
+                >
+                  <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Artikkel</p>
+                  <h3 className="mt-4 text-2xl font-serif font-semibold">{article.title}</h3>
+                  <p className="mt-4 text-base leading-7 text-[var(--color-secondary)]">{article.summary}</p>
+                </Link>
+              ))}
             </div>
           </section>
 
