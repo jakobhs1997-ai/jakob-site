@@ -30,20 +30,15 @@ export default function OmMegPage() {
         <header className="border-b border-[var(--color-border)] pb-8">
           <div className="flex flex-col gap-2">
             <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Om meg</p>
-            <nav>
-              <a href="/" className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)]">
-                ← Forsiden
-              </a>
-            </nav>
           </div>
           <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-center">
-            <div className="flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]" style={{ width: 150, height: 150 }}>
+            <div className="flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]" style={{ width: 200, height: 200 }}>
               <Image
                 src="/jakob.jpg"
                 alt="Jakob Hake-Steffensen"
-                width={150}
-                height={150}
-                className="h-[150px] w-[150px] object-cover"
+                width={200}
+                height={200}
+                className="h-[200px] w-[200px] object-cover object-center"
               />
             </div>
             <div className="sm:max-w-2xl">
@@ -53,6 +48,14 @@ export default function OmMegPage() {
               <p className="mt-6 text-lg leading-8 text-[var(--color-secondary)]">
                 Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker det til å forstå hva som faktisk driver beslutninger — i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling, og er med på å drive NJORD maritime studentforening.
               </p>
+              <div className="mt-6">
+                <a
+                  href="/"
+                  className="inline-flex items-center px-4 py-2 rounded-md border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] transition"
+                >
+                  Tilbake til forsiden
+                </a>
+              </div>
             </div>
           </div>
         </header>
