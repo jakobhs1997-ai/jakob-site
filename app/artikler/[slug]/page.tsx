@@ -38,14 +38,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           {formattedDate ? (
             <p className="mt-3 text-sm text-[var(--color-secondary)]">{formattedDate}</p>
           ) : null}
-          <div className="mt-6">
-            <Link
-              href="/"
-              className="inline-flex items-center px-4 py-2 rounded-md border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] transition"
-            >
-              Tilbake til forsiden
-            </Link>
-          </div>
         </div>
 
         <article className="space-y-6">

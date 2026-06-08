@@ -11,7 +11,10 @@ export default function ArticlesPage() {
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
-        <header className="border-b border-[var(--color-border)] pb-8">
+        <Link href="/" className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)] transition">
+          ← Forsiden
+        </Link>
+        <header className="border-b border-[var(--color-border)] pb-8 mt-6">
           <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Artikler</p>
           <h1 className="mt-4 text-4xl font-serif font-semibold tracking-tight sm:text-5xl">
             Alle artikler
