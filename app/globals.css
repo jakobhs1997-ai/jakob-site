@@ -4,7 +4,9 @@
   --background: #1c1c1e;
   --foreground: #f0ece4;
   --secondary: #888888;
-  --accent: #60a5fa;
+  --accent: #c9a84c;
+  --section-alt: #2c2c2e;
+  --divider: #3a3a3c;
 }
 
 @theme inline {
@@ -14,19 +16,23 @@
   --color-accent: var(--accent);
   --color-surface: var(--surface);
   --color-border: var(--border);
+  --color-section-alt: var(--section-alt);
+  --color-divider: var(--divider);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1c1c1e;
-    --foreground: #f0ece4;
-    --secondary: #888888;
-    --accent: #60a5fa;
-    --surface: #141414;
-    --border: #2c2c2c;
-  }
+    :root {
+      --background: #1c1c1e;
+      --foreground: #f0ece4;
+      --secondary: #888888;
+      --accent: #c9a84c;
+      --section-alt: #2c2c2e;
+      --divider: #3a3a3c;
+      --surface: #141414;
+      --border: #2c2c2c;
+    }
 }
 
 * {
@@ -51,7 +57,7 @@ a {
 }
 
 a:hover {
-  color: #5472a0;
+  color: var(--accent);
 }
 
 button,
