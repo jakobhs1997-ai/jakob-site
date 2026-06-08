@@ -2,6 +2,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles } from "@/lib/articles";
 
+export async function generateMetadata({ params }: { params: any }) {
+  const resolvedParams = await params;
+  const article = articles.find((a) => a.slug === resolvedParams?.slug || params.slug);
+  return {
+    title: article ? `${article.title} – Jakob Hake-Steffensen` : "Artikkel",
+    description: article?.summary ?? undefined,
+  };
+}
+
 interface ArticlePageProps {
   params: Promise<{
     slug: string;

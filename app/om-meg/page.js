@@ -1,4 +1,7 @@
-"use client";
+export const metadata = {
+  title: 'Om meg – Jakob Hake-Steffensen',
+  description: 'Bakgrunn, erfaring og ferdigheter.',
+};
 
 import Image from "next/image";
 

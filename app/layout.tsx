@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Jakob Hake-Steffensen",
-  description: "Personlig nettside for tekster om statsvitenskap, økonomi og samfunn.",
+  description: "Statsvitenskap og økonomi. Skriver om det jeg legger merke til.",
 };
 
 export default function RootLayout({
