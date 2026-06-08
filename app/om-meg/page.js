@@ -32,13 +32,13 @@ export default function OmMegPage() {
             <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Om meg</p>
           </div>
           <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-center">
-            <div className="flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]" style={{ width: 200, height: 200 }}>
+            <div className="flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]" style={{ width: 200, height: 260 }}>
               <Image
                 src="/jakob.jpg"
                 alt="Jakob Hake-Steffensen"
                 width={200}
-                height={200}
-                className="h-[200px] w-[200px] object-cover object-center"
+                height={260}
+                className="h-[260px] w-[200px] object-cover object-top"
               />
             </div>
             <div className="sm:max-w-2xl">
@@ -51,7 +51,7 @@ export default function OmMegPage() {
               <div className="mt-6">
                 <a
                   href="/"
-                  className="inline-flex items-center px-4 py-2 rounded-md border border-[1px] border-[color:var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] transition"
+                  className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)] transition"
                 >
                   Tilbake til forsiden
                 </a>
