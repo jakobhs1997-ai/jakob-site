@@ -17,6 +17,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound();
   }
 
+  const formattedDate = article.date
+    ? new Date(article.date).toLocaleDateString("nb-NO")
+    : null;
+
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
@@ -25,8 +29,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <h1 className="mt-4 text-4xl font-serif font-semibold tracking-tight sm:text-5xl">
             {article.title}
           </h1>
-          {article.date ? (
-            <p className="mt-3 text-sm text-[var(--color-secondary)]">{article.date}</p>
+          {formattedDate ? (
+            <p className="mt-3 text-sm text-[var(--color-secondary)]">{formattedDate}</p>
           ) : null}
           <div className="mt-6">
             <Link
