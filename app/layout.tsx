@@ -38,7 +38,7 @@ export default function RootLayout({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex items-center justify-center text-[#c9a84c] hover:text-[#c9a84c] transition"
+              className="inline-flex items-center justify-center text-[var(--accent)] hover:text-[var(--accent)] transition"
             >
               <span className="sr-only">LinkedIn</span>
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7" aria-hidden="true">
