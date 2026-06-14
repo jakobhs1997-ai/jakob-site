@@ -18,6 +18,18 @@ export const metadata: Metadata = {
   verification: {
     google: "DAKn-eyo5C2tVpKDL7sBHeFl1qsLh8T5H5VTRs8puTk",
   },
+  openGraph: {
+    title: "Jakob Hake-Steffensen",
+    description: "Statsvitenskap og økonomi. Skriver om det jeg legger merke til.",
+    url: "https://jeycup.com",
+    images: [
+      {
+        url: "https://jeycup.com/og-image.png",
+        width: 1584,
+        height: 396,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
