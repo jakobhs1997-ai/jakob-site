@@ -26,20 +26,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-      --background: #1c1c1e;
-      --foreground: #f0ece4;
-      --secondary: #888888;
-      --accent: #c9a84c;
-      --section-alt: #2c2c2e;
-      --divider: #3a3a3c;
-      --surface: #141414;
-      --border: #2c2c2c;
-      --header-background: #1c1c1e;
-      --header-foreground: #f0ece4;
-    }
-}
+/* Always use the light palette regardless of system color scheme */
+
 
 * {
   box-sizing: border-box;
