@@ -18,8 +18,8 @@ export default function Home() {
             <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Jakob Hake-Steffensen</p>
           </div>
           <nav className="flex gap-8 text-sm font-medium text-[var(--color-foreground)]">
-            <a href="#articles" className="transition text-[var(--color-accent)] hover:text-[var(--color-foreground)]">Artikler</a>
-            <a href="/om-meg" className="transition text-[var(--color-accent)] hover:text-[var(--color-foreground)]">Om meg</a>
+            <a href="#articles" className="transition text-[var(--header-foreground)] hover:text-[var(--color-accent)]">Artikler</a>
+            <a href="/om-meg" className="transition text-[var(--header-foreground)] hover:text-[var(--color-accent)]">Om meg</a>
           </nav>
         </header>
 

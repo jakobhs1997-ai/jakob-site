@@ -54,7 +54,7 @@ export default function OmMegPage() {
               <div className="mt-6">
                 <a
                   href="/"
-                  className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)] transition"
+                  className="text-sm text-[var(--header-foreground)] hover:text-[var(--color-accent)] transition"
                 >
                   Tilbake til forsiden
                 </a>

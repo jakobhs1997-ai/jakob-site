@@ -2,15 +2,15 @@
 
 :root {
   --background: #f5f0e8;
-  --foreground: #1a1a1a;
+  --foreground: #2c2c2c;
   --secondary: #6b6b6b;
   --accent: #c9a84c;
   --section-alt: #e8e2d8;
   --divider: #d6d0c6;
   --surface: #e8e2d8;
   --border: #d0c9bf;
-  --header-background: #1c1c1e;
-  --header-foreground: #f0ece4;
+  --header-background: #f5f0e8;
+  --header-foreground: #2c2c2c;
 }
 
 @theme inline {
@@ -48,6 +48,7 @@ body {
 header {
   background: var(--header-background);
   color: var(--header-foreground);
+  border-bottom: 1px solid #d4cdc4;
 }
 
 a {

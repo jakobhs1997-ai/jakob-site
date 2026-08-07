@@ -11,7 +11,7 @@ export default function ArticlesPage() {
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
-        <Link href="/" className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)] transition">
+        <Link href="/" className="text-sm text-[var(--header-foreground)] hover:text-[var(--color-accent)] transition">
           ← Forsiden
         </Link>
         <header className="border-b border-[var(--color-border)] pb-8 mt-6">
