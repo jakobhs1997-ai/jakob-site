@@ -49,7 +49,7 @@ export default function OmMegPage() {
                 Jakob Hake-Steffensen
               </h1>
               <p className="mt-6 text-lg leading-8 text-[var(--color-secondary)]">
-                Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker det til å forstå hva som faktisk driver beslutninger — i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling, og er med på å drive NJORD maritime studentforening.
+                Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker det til å forstå hva som faktisk driver beslutninger – i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
               </p>
               <div className="mt-6">
                 <a
