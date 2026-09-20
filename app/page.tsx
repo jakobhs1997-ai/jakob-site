@@ -13,17 +13,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
-        <header className="flex flex-col gap-6 border-b border-[var(--color-border)] pb-8 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Jakob Hake-Steffensen</p>
-          </div>
-          <nav className="flex gap-8 text-sm font-medium text-[var(--color-foreground)]">
-            <a href="#articles" className="transition text-[var(--header-foreground)] hover:text-[var(--color-accent)]">Artikler</a>
-            <a href="/om-meg" className="transition text-[var(--header-foreground)] hover:text-[var(--color-accent)]">Om meg</a>
-          </nav>
-        </header>
-
-        <main className="mt-12 space-y-16">
+        <main className="space-y-16">
           <section className="max-w-3xl space-y-6">
             <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Velkommen</p>
             <h1 className="text-4xl font-serif font-semibold tracking-tight sm:text-5xl">

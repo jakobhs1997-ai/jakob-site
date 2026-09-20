@@ -8,6 +8,8 @@ export default function ArticlesPage() {
     return dateB - dateA;
   });
 
+  const [featuredArticle, ...restArticles] = sortedArticles;
+
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
@@ -24,8 +26,24 @@ export default function ArticlesPage() {
           </p>
         </header>
 
+        {featuredArticle ? (
+          <Link
+            href={`/artikler/${featuredArticle.slug}`}
+            className="mt-10 block w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-10 transition hover:border-[var(--color-accent)] hover:bg-[#20232a] sm:p-14"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Nyeste artikkel</p>
+              {featuredArticle.date ? (
+                <p className="text-xs text-[var(--color-secondary)]">{new Date(featuredArticle.date).toLocaleDateString("nb-NO")}</p>
+              ) : null}
+            </div>
+            <h2 className="mt-6 text-3xl font-serif font-semibold sm:text-4xl">{featuredArticle.title}</h2>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-secondary)] sm:text-lg">{featuredArticle.summary}</p>
+          </Link>
+        ) : null}
+
         <div className="mt-10 grid gap-6">
-          {sortedArticles.map((article) => (
+          {restArticles.map((article) => (
             <Link
               key={article.slug}
               href={`/artikler/${article.slug}`}
