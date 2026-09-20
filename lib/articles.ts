@@ -7,6 +7,23 @@ export interface Article {
   date?: string;
 }
 
+export function sortedByDateDesc(list: Article[]): Article[] {
+  return [...list].sort((a, b) => {
+    const dateA = a.date ? new Date(a.date).getTime() : 0;
+    const dateB = b.date ? new Date(b.date).getTime() : 0;
+    return dateB - dateA;
+  });
+}
+
+export function formatArticleDate(date?: string): string | null {
+  if (!date) return null;
+  return new Date(date).toLocaleDateString("nb-NO", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 export const articles: Article[] = [
   {
     slug: "gdansk-omdefinerer-seg-selv",

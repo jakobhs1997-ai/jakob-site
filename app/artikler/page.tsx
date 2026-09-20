@@ -1,64 +1,41 @@
 import Link from "next/link";
-import { articles } from "@/lib/articles";
+import { articles, sortedByDateDesc } from "@/lib/articles";
+import { FeaturedArticle, ArticleList } from "@/app/components/Articles";
+
+export const metadata = {
+  title: "Artikler – Jakob Hake-Steffensen",
+  description: "Alle publiserte artikler, sortert fra nyeste til eldste.",
+};
 
 export default function ArticlesPage() {
-  const sortedArticles = [...articles].sort((a, b) => {
-    const dateA = a.date ? new Date(a.date).getTime() : 0;
-    const dateB = b.date ? new Date(b.date).getTime() : 0;
-    return dateB - dateA;
-  });
-
+  const sortedArticles = sortedByDateDesc(articles);
   const [featuredArticle, ...restArticles] = sortedArticles;
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
-      <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
-        <Link href="/" className="text-sm text-[var(--header-foreground)] hover:text-[var(--color-accent)] transition">
+    <div className="min-h-screen text-[var(--color-foreground)]">
+      <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
+        <Link
+          href="/"
+          className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] transition hover:text-[var(--color-foreground)]"
+        >
           ← Forsiden
         </Link>
-        <header className="border-b border-[var(--color-border)] pb-8 mt-6">
-          <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Artikler</p>
-          <h1 className="mt-4 text-4xl font-serif font-semibold tracking-tight sm:text-5xl">
+
+        <div className="mt-8 border-b border-[var(--color-border)] pb-10">
+          <p className="font-condensed text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-secondary)]">
+            Artikler
+          </p>
+          <h1 className="mt-4 font-serif text-5xl font-black uppercase tracking-tight sm:text-6xl">
             Alle artikler
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--color-secondary)]">
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--color-secondary)]">
             Her finner du alle publiserte artikler, sortert fra nyeste til eldste.
           </p>
-        </header>
+        </div>
 
-        {featuredArticle ? (
-          <Link
-            href={`/artikler/${featuredArticle.slug}`}
-            className="mt-10 block w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-10 transition hover:border-[var(--color-accent)] hover:bg-[#20232a] sm:p-14"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Nyeste artikkel</p>
-              {featuredArticle.date ? (
-                <p className="text-xs text-[var(--color-secondary)]">{new Date(featuredArticle.date).toLocaleDateString("nb-NO")}</p>
-              ) : null}
-            </div>
-            <h2 className="mt-6 text-3xl font-serif font-semibold sm:text-4xl">{featuredArticle.title}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-secondary)] sm:text-lg">{featuredArticle.summary}</p>
-          </Link>
-        ) : null}
-
-        <div className="mt-10 grid gap-6">
-          {restArticles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/artikler/${article.slug}`}
-              className="block rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8 transition hover:border-[var(--color-accent)] hover:bg-[#20232a]"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Artikkel</p>
-                {article.date ? (
-                  <p className="text-xs text-[var(--color-secondary)]">{new Date(article.date).toLocaleDateString("nb-NO")}</p>
-                ) : null}
-              </div>
-              <h2 className="mt-4 text-2xl font-serif font-semibold">{article.title}</h2>
-              <p className="mt-4 text-base leading-7 text-[var(--color-secondary)]">{article.summary}</p>
-            </Link>
-          ))}
+        <div className="mt-10">
+          {featuredArticle ? <FeaturedArticle article={featuredArticle} /> : null}
+          {restArticles.length > 0 ? <ArticleList articles={restArticles} /> : null}
         </div>
       </div>
     </div>

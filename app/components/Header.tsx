@@ -16,11 +16,11 @@ export default function Header() {
       <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-8 lg:px-12">
         <Link
           href="/"
-          className="text-sm uppercase tracking-[0.35em] text-[var(--color-secondary)] transition hover:text-[var(--color-accent)]"
+          className="font-serif text-xl font-semibold tracking-tight text-[var(--color-off-white)] transition hover:text-[var(--color-accent)] sm:text-2xl"
         >
           Jakob Hake-Steffensen
         </Link>
-        <nav className="flex gap-10 text-sm font-medium tracking-[0.08em]">
+        <nav className="flex gap-10 font-condensed text-xs font-semibold uppercase tracking-[0.18em]">
           {navItems.map((item) => {
             const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
             return (
@@ -30,12 +30,12 @@ export default function Header() {
                 className={`relative pb-2 transition ${
                   isActive
                     ? "text-[var(--color-accent)]"
-                    : "text-[var(--header-foreground)] hover:text-[var(--color-accent)]"
+                    : "text-[var(--color-off-white)] hover:text-[var(--color-accent)]"
                 }`}
               >
                 {item.label}
                 {isActive ? (
-                  <span className="absolute inset-x-0 -bottom-[1px] h-[2px] bg-[#c9a84c]" />
+                  <span className="absolute inset-x-0 -bottom-[1px] h-[2px] bg-[var(--color-accent)]" />
                 ) : null}
               </Link>
             );

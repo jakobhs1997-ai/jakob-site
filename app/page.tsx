@@ -1,61 +1,61 @@
 import Link from "next/link";
-import { articles } from "@/lib/articles";
+import { articles, sortedByDateDesc } from "@/lib/articles";
+import { FeaturedArticle, ArticleList } from "@/app/components/Articles";
 
 export default function Home() {
-  const featured = [...articles]
-    .sort((a, b) => {
-      const dateA = a.date ? new Date(a.date).getTime() : 0;
-      const dateB = b.date ? new Date(b.date).getTime() : 0;
-      return dateB - dateA;
-    })
-    .slice(0, 2);
+  const sorted = sortedByDateDesc(articles);
+  const [featuredArticle, ...restArticles] = sorted;
+  const secondaryArticles = restArticles.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
-      <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8 lg:px-12">
-        <main className="space-y-16">
-          <section className="max-w-3xl space-y-6">
-            <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Velkommen</p>
-            <h1 className="text-4xl font-serif font-semibold tracking-tight sm:text-5xl">
-              Skarp på sammenhenger. Opptatt av det som faktisk skjer.
-            </h1>
-            <p className="text-xl leading-9 text-[var(--color-secondary)]">
-              Skriver om det jeg legger merke til.
-            </p>
-          </section>
+    <div className="min-h-screen text-[var(--color-foreground)]">
+      <div className="mx-auto max-w-5xl px-6 pt-16 sm:px-8 lg:px-12">
+        <section className="max-w-3xl space-y-6">
+          <span className="block h-[2px] w-16 bg-[var(--color-accent)]" />
+          <h1 className="font-serif text-6xl font-black leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
+            Jakob Hake-Steffensen
+          </h1>
+          <p className="font-serif text-2xl italic leading-snug text-[var(--color-secondary)] sm:text-3xl">
+            Skarp på sammenhenger. Opptatt av det som faktisk skjer.
+          </p>
+        </section>
+      </div>
 
-          <section id="articles" className="space-y-8">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary)]">Utvalgte artikler</p>
-                <h2 className="mt-3 text-3xl font-serif font-semibold tracking-tight">Seneste tanker</h2>
-              </div>
-            </div>
+      <div className="mt-14 w-full bg-[var(--color-ink)]">
+        <div className="mx-auto max-w-5xl px-6 py-6 sm:px-8 sm:py-8 lg:px-12">
+          <p className="font-condensed text-sm uppercase tracking-[0.2em] text-[var(--color-off-white)]">
+            Statsvitenskap og økonomi. Skriver om det jeg legger merke til.
+          </p>
+        </div>
+      </div>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {featured.map((article) => (
-                <Link
-                  key={article.slug}
-                  href={`/artikler/${article.slug}`}
-                  className="block rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8 transition hover:border-[var(--color-accent)] hover:bg-[#20232a]"
-                >
-                  <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-secondary)]">Artikkel</p>
-                  <h3 className="mt-4 text-2xl font-serif font-semibold">{article.title}</h3>
-                  <p className="mt-4 text-base leading-7 text-[var(--color-secondary)]">{article.summary}</p>
-                </Link>
-              ))}
+      <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
+        <section className="border-t border-[var(--color-accent)] pt-10">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-condensed text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-secondary)]">
+                Utvalgte artikler
+              </p>
+              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl">
+                Seneste tanker
+              </h2>
             </div>
-            <div className="flex justify-end">
-              <Link
-                href="/artikler"
-                className="text-sm text-[var(--color-accent)] hover:text-[var(--color-foreground)] transition"
-              >
-                Se alle artikler →
-              </Link>
-            </div>
-          </section>
+          </div>
 
-        </main>
+          <div className="mt-10">
+            {featuredArticle ? <FeaturedArticle article={featuredArticle} eyebrow="Utvalgt" /> : null}
+            {secondaryArticles.length > 0 ? <ArticleList articles={secondaryArticles} /> : null}
+          </div>
+
+          <div className="mt-10 flex justify-end">
+            <Link
+              href="/artikler"
+              className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] transition hover:text-[var(--color-foreground)]"
+            >
+              Se alle artikler →
+            </Link>
+          </div>
+        </section>
       </div>
     </div>
   );
