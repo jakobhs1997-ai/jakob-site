@@ -23,21 +23,13 @@ export default function Home() {
               className="h-full w-full object-cover object-top"
             />
           </div>
-          <h1 className="font-serif text-6xl font-black leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
+          <h1 className="font-serif text-4xl font-black leading-[0.95] tracking-tight sm:whitespace-nowrap sm:text-5xl lg:text-6xl">
             Jakob Hake-Steffensen
           </h1>
           <p className="font-serif text-2xl italic leading-snug text-[var(--color-secondary)] sm:text-3xl">
             Skarp på sammenhenger. Opptatt av det som faktisk skjer.
           </p>
         </section>
-      </div>
-
-      <div className="mt-14 w-full bg-[var(--color-ink)]">
-        <div className="mx-auto max-w-5xl px-6 py-6 sm:px-8 sm:py-8 lg:px-12">
-          <p className="font-condensed text-sm uppercase tracking-[0.2em] text-[var(--color-off-white)]">
-            Statsvitenskap og økonomi. Skriver om det jeg legger merke til.
-          </p>
-        </div>
       </div>
 
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
