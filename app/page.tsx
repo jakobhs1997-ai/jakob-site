@@ -10,10 +10,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-[var(--color-foreground)]">
-      <div className="mx-auto max-w-5xl px-6 pt-16 sm:px-8 lg:px-12">
-        <section className="mx-auto max-w-3xl space-y-6 text-center">
+      <div className="mx-auto max-w-5xl px-6 pt-8 sm:px-8 lg:px-12">
+        <section className="mx-auto max-w-3xl text-center">
           <span className="mx-auto block h-[2px] w-16 bg-[var(--color-accent)]" />
-          <div className="mx-auto h-[192px] w-[192px] overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <div className="mx-auto mt-3 h-[192px] w-[192px] overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]">
             <Image
               src="/jakob.jpg"
               alt="Jakob Hake-Steffensen"
@@ -23,17 +23,17 @@ export default function Home() {
               className="h-full w-full object-cover object-top"
             />
           </div>
-          <h1 className="font-serif text-4xl font-black leading-[0.95] tracking-tight sm:whitespace-nowrap sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-serif text-4xl font-black leading-[0.95] tracking-tight sm:whitespace-nowrap sm:text-5xl lg:text-6xl">
             Jakob Hake-Steffensen
           </h1>
-          <p className="font-serif text-2xl italic leading-snug text-[var(--color-secondary)] sm:text-3xl">
+          <p className="mt-2 font-serif text-2xl italic leading-snug text-[var(--color-secondary)] sm:text-3xl">
             Skarp på sammenhenger. Opptatt av det som faktisk skjer.
           </p>
         </section>
       </div>
 
-      <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
-        <section className="border-t border-[var(--color-accent)] pt-10">
+      <div className="mx-auto max-w-5xl px-6 pt-6 pb-16 sm:px-8 lg:px-12">
+        <section className="border-t border-[var(--color-accent)] pt-6">
           <h2 className="font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl">
             Seneste tanker
           </h2>
