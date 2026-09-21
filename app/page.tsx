@@ -34,13 +34,9 @@ export default function Home() {
 
       <div className="mx-auto max-w-5xl px-6 pt-8 pb-16 sm:px-8 lg:px-12">
         <section className="border-t border-[var(--color-accent)] pt-6">
-          <h2 className="font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl">
-            Seneste tanker
-          </h2>
-
           <div>
             {featuredArticle ? (
-              <FeaturedArticle article={featuredArticle} eyebrow="Utvalgt" compactTop />
+              <FeaturedArticle article={featuredArticle} variant="compact" />
             ) : null}
             {secondaryArticles.length > 0 ? <ArticleList articles={secondaryArticles} /> : null}
           </div>

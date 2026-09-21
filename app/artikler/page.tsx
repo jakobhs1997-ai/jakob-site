@@ -34,7 +34,9 @@ export default function ArticlesPage() {
         </div>
 
         <div className="mt-10">
-          {featuredArticle ? <FeaturedArticle article={featuredArticle} /> : null}
+          {featuredArticle ? (
+            <FeaturedArticle article={featuredArticle} eyebrow="Nyeste artikkel" />
+          ) : null}
           {restArticles.length > 0 ? <ArticleList articles={restArticles} /> : null}
         </div>
       </div>

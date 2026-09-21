@@ -4,32 +4,41 @@ import { formatArticleDate } from "@/lib/articles";
 
 export function FeaturedArticle({
   article,
-  eyebrow = "Nyeste artikkel",
-  compactTop = false,
+  eyebrow,
+  variant = "default",
 }: {
   article: Article;
   eyebrow?: string;
-  /** Reduces the top padding — for placement directly under a heading, with no extra gap to absorb. */
-  compactTop?: boolean;
+  /** "compact" drops the eyebrow label, shrinks the title, and swaps the heavy bottom border for a thin divider matching ArticleList. */
+  variant?: "default" | "compact";
 }) {
   const formattedDate = formatArticleDate(article.date);
+  const isCompact = variant === "compact";
 
   return (
     <Link
       href={`/artikler/${article.slug}`}
-      className={`group block border-b-2 border-[var(--color-foreground)] pb-10 transition sm:pb-12 ${
-        compactTop ? "pt-4" : "pt-10 sm:pt-12"
+      className={`group block py-10 transition sm:py-12 ${
+        isCompact
+          ? "border-b border-[var(--color-divider)]"
+          : "border-b-2 border-[var(--color-foreground)]"
       }`}
     >
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-        <span className="font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)]">
-          {eyebrow}
-        </span>
+        {eyebrow ? (
+          <span className="font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)]">
+            {eyebrow}
+          </span>
+        ) : null}
         <span className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-secondary)]">
           {[article.category, formattedDate].filter(Boolean).join(" · ")}
         </span>
       </div>
-      <h2 className="mt-6 max-w-4xl font-serif text-4xl font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] sm:text-5xl lg:text-6xl">
+      <h2
+        className={`mt-6 max-w-4xl font-serif font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] ${
+          isCompact ? "text-4xl" : "text-4xl sm:text-5xl lg:text-6xl"
+        }`}
+      >
         {article.title}
       </h2>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-secondary)]">
