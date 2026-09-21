@@ -35,15 +35,19 @@ export function FeaturedArticle({
         </span>
       </div>
       <h2
-        className={`mt-6 max-w-4xl font-serif font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] ${
-          isCompact ? "text-4xl" : "text-4xl sm:text-5xl lg:text-6xl"
+        className={`mt-8 max-w-4xl font-serif font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] ${
+          isCompact ? "text-4xl sm:text-5xl" : "text-4xl sm:text-5xl lg:text-6xl"
         }`}
       >
         {article.title}
       </h2>
-      <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-secondary)]">
+      <p className="mt-5 max-w-xl text-lg leading-7 text-[var(--color-secondary)]">
         {article.summary}
       </p>
+      <span className="mt-6 inline-flex items-center gap-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent)] transition-colors group-hover:text-[var(--color-foreground)]">
+        Les artikkel
+        <span aria-hidden="true">→</span>
+      </span>
     </Link>
   );
 }
@@ -73,10 +77,10 @@ export function ArticleList({ articles }: { articles: Article[] }) {
                 </span>
               ) : null}
             </div>
-            <h3 className="mt-3 font-serif text-2xl font-bold tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] sm:text-3xl">
+            <h3 className="mt-4 font-serif text-2xl font-bold tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] sm:text-3xl">
               {article.title}
             </h3>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--color-secondary)]">
+            <p className="mt-3 max-w-xl text-base leading-7 text-[var(--color-secondary)]">
               {article.summary}
             </p>
           </Link>
