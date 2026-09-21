@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Om meg – Jakob Hake-Steffensen',
-  description: 'Bakgrunn, erfaring og ferdigheter.',
+  description: 'Bakgrunn, utdanning og ferdigheter.',
 };
 
 import Image from "next/image";
@@ -13,16 +13,11 @@ const sections = [
       "Jeg følger særlig med på Europa – hva som holder det sammen, og hva som ikke gjør det lenger. Energi som pressmiddel. Partier som vokser ved å tape støtten de hadde. Det jeg egentlig er opptatt av er gapet mellom hva som sies om politikk og hva den faktisk gjør. Den analysen er sjelden den som slipper til i nyhetene.",
   },
   {
-    id: "erfaring",
-    title: "Erfaring",
-    details:
-      "Løpeinstruktør ved SATS. Deltaker i Kongsberg Gruppens Your Extreme 48-timers casekonkurranse (2018 og 2019). Tidligere butikkselger, hovmester og vikarierende lærer.",
-  },
-  {
     id: "utdanning",
     title: "Utdanning",
     details:
-      "Bachelor i økonomi og administrasjon, OsloMet (2023–2026). Bachelor i statsvitenskap, NTNU (2018–2021).",
+      "Bachelor i statsvitenskap, NTNU (2018–2021). Bachelor i økonomi og administrasjon, OsloMet (2023–2026).",
+    note: "Statsvitenskap kom først. Deretter økonomi. Det er ikke tilfeldig, men fordi jeg merket at politisk analyse uten forståelse for insentiver fort blir luftig. De to fagene leses bedre sammen enn hver for seg.",
   },
   {
     id: "ferdigheter",
