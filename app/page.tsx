@@ -46,7 +46,14 @@ export default function Home() {
             {featuredArticle ? (
               <FeaturedArticle article={featuredArticle} variant="compact" />
             ) : null}
-            {secondaryArticles.length > 0 ? <ArticleList articles={secondaryArticles} /> : null}
+            {secondaryArticles.length > 0 ? (
+              <>
+                <p className="mt-10 mb-4 font-condensed text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-secondary)]">
+                  Siste artikler
+                </p>
+                <ArticleList articles={secondaryArticles} />
+              </>
+            ) : null}
           </div>
 
           <div className="mt-10 flex justify-end">

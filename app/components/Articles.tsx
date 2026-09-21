@@ -36,7 +36,7 @@ export function FeaturedArticle({
       </div>
       <h2
         className={`mt-8 max-w-4xl font-serif font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] ${
-          isCompact ? "text-4xl sm:text-5xl" : "text-4xl sm:text-5xl lg:text-6xl"
+          isCompact ? "text-[32px] sm:text-[42px]" : "text-4xl sm:text-5xl lg:text-6xl"
         }`}
       >
         {article.title}
