@@ -11,20 +11,20 @@ export default function Home() {
   return (
     <div className="min-h-screen text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 pt-8 sm:px-8 lg:px-12">
-        <section className="flex flex-col items-center gap-8 sm:flex-row sm:gap-14 lg:gap-16">
+        <section className="flex flex-col items-center gap-8 sm:flex-row sm:items-end sm:gap-14 lg:gap-16">
           <a
             href="https://www.linkedin.com/in/jeycup"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative block aspect-[4/5] w-full max-w-[280px] cursor-pointer overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] transition hover:ring-2 hover:ring-[#c9a84c] sm:aspect-auto sm:w-[220px] sm:flex-shrink-0 sm:self-stretch"
+            className="block h-[232px] w-[232px] flex-shrink-0 cursor-pointer overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition hover:ring-2 hover:ring-[#c9a84c]"
           >
             <Image
               src="/jakob.jpg"
               alt="Jakob Hake-Steffensen"
-              fill
+              width={232}
+              height={232}
               priority
-              sizes="(min-width: 640px) 220px, 100vw"
-              className="object-cover object-top"
+              className="h-full w-full object-cover object-top"
             />
           </a>
           <div className="text-center sm:text-left">
@@ -39,7 +39,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="mx-auto max-w-5xl px-6 pt-8 pb-16 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-5xl px-6 pt-6 pb-16 sm:px-8 lg:px-12">
         <section className="border-t border-[var(--color-accent)] pt-6">
           <div>
             {featuredArticle ? (
