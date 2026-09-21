@@ -5,16 +5,21 @@ import { formatArticleDate } from "@/lib/articles";
 export function FeaturedArticle({
   article,
   eyebrow = "Nyeste artikkel",
+  compactTop = false,
 }: {
   article: Article;
   eyebrow?: string;
+  /** Reduces the top padding — for placement directly under a heading, with no extra gap to absorb. */
+  compactTop?: boolean;
 }) {
   const formattedDate = formatArticleDate(article.date);
 
   return (
     <Link
       href={`/artikler/${article.slug}`}
-      className="group block border-b-2 border-[var(--color-foreground)] py-10 transition sm:py-12"
+      className={`group block border-b-2 border-[var(--color-foreground)] pb-10 transition sm:pb-12 ${
+        compactTop ? "pt-4" : "pt-10 sm:pt-12"
+      }`}
     >
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
         <span className="font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)]">

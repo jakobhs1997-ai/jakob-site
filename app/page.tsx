@@ -38,8 +38,10 @@ export default function Home() {
             Seneste tanker
           </h2>
 
-          <div className="-mt-6 sm:-mt-8">
-            {featuredArticle ? <FeaturedArticle article={featuredArticle} eyebrow="Utvalgt" /> : null}
+          <div>
+            {featuredArticle ? (
+              <FeaturedArticle article={featuredArticle} eyebrow="Utvalgt" compactTop />
+            ) : null}
             {secondaryArticles.length > 0 ? <ArticleList articles={secondaryArticles} /> : null}
           </div>
 
