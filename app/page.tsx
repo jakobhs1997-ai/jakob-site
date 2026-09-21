@@ -13,7 +13,12 @@ export default function Home() {
       <div className="mx-auto max-w-5xl px-6 pt-8 sm:px-8 lg:px-12">
         <section className="mx-auto max-w-3xl text-center">
           <span className="mx-auto block h-[2px] w-16 bg-[var(--color-accent)]" />
-          <div className="mx-auto mt-3 h-[192px] w-[192px] overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <a
+            href="https://www.linkedin.com/in/jeycup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-auto block h-[192px] w-[192px] cursor-pointer overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition hover:ring-2 hover:ring-[#c9a84c]"
+          >
             <Image
               src="/jakob.jpg"
               alt="Jakob Hake-Steffensen"
@@ -22,7 +27,7 @@ export default function Home() {
               priority
               className="h-full w-full object-cover object-top"
             />
-          </div>
+          </a>
           <h1 className="mt-4 font-serif text-4xl font-black leading-[0.95] tracking-tight sm:whitespace-nowrap sm:text-5xl lg:text-6xl">
             Jakob Hake-Steffensen
           </h1>
