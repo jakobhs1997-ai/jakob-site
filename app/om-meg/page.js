@@ -29,6 +29,7 @@ const sections = [
     title: "Ferdigheter",
     details:
       "Forretningsutvikling, relasjonsbygging, stakeholder management, strategisk kommunikasjon, prosjektledelse.",
+    note: "Utenom jobben løper jeg, spiller sjakk og lager mat. Jeg tror god tenkning krever friksjon, og at de beste samtalene starter med uenighet.",
   },
 ];
 
@@ -81,15 +82,14 @@ export default function OmMegPage() {
               <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-secondary)]">
                 {section.details}
               </p>
+              {section.note ? (
+                <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-secondary)]">
+                  {section.note}
+                </p>
+              ) : null}
             </div>
           ))}
         </section>
-
-        <div className="border-t border-[var(--color-divider)] pt-8">
-          <p className="max-w-3xl text-base leading-8 text-[var(--color-secondary)]">
-            Utenom jobben løper jeg, spiller sjakk og lager mat. Jeg tror god tenkning krever friksjon, og at de beste samtalene starter med uenighet.
-          </p>
-        </div>
       </div>
     </div>
   );
