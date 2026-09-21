@@ -7,6 +7,12 @@ import Image from "next/image";
 
 const sections = [
   {
+    id: "hva-jeg-er-opptatt-av",
+    title: "Hva jeg er opptatt av",
+    details:
+      "Jeg følger særlig med på Europa – hva som holder det sammen, og hva som ikke gjør det lenger. Energi som pressmiddel. Partier som vokser ved å tape støtten de hadde. Det jeg egentlig er opptatt av er gapet mellom hva som sies om politikk og hva den faktisk gjør. Den analysen er sjelden den som slipper til i nyhetene.",
+  },
+  {
     id: "erfaring",
     title: "Erfaring",
     details:
@@ -52,7 +58,7 @@ export default function OmMegPage() {
                 Statsviter, økonom og forretningsutvikler
               </p>
               <p className="mt-6 text-lg leading-8 text-[var(--color-secondary)]">
-                Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker det til å forstå hva som faktisk driver beslutninger — i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
+                Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker kombinasjonen til å forstå hva som faktisk driver beslutninger – i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
               </p>
               <div className="mt-6">
                 <a
@@ -78,6 +84,12 @@ export default function OmMegPage() {
             </div>
           ))}
         </section>
+
+        <div className="border-t border-[var(--color-divider)] pt-8">
+          <p className="max-w-3xl text-base leading-8 text-[var(--color-secondary)]">
+            Utenom jobben løper jeg, spiller sjakk og lager mat. Jeg tror god tenkning krever friksjon, og at de beste samtalene starter med uenighet.
+          </p>
+        </div>
       </div>
     </div>
   );
