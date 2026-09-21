@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { articles, sortedByDateDesc } from "@/lib/articles";
 import { FeaturedArticle, ArticleList } from "@/app/components/Articles";
@@ -12,11 +13,26 @@ export default function Home() {
       <div className="mx-auto max-w-5xl px-6 pt-16 sm:px-8 lg:px-12">
         <section className="max-w-3xl space-y-6">
           <span className="block h-[2px] w-16 bg-[var(--color-accent)]" />
-          <h1 className="font-serif text-6xl font-black leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
-            Jakob Hake-Steffensen
-          </h1>
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8">
+            <div className="h-[140px] w-[140px] flex-shrink-0 overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]">
+              <Image
+                src="/jakob.jpg"
+                alt="Jakob Hake-Steffensen"
+                width={140}
+                height={140}
+                priority
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+            <h1 className="text-center font-serif text-6xl font-black leading-[0.95] tracking-tight sm:text-left sm:text-7xl lg:text-8xl">
+              Jakob Hake-Steffensen
+            </h1>
+          </div>
           <p className="font-serif text-2xl italic leading-snug text-[var(--color-secondary)] sm:text-3xl">
             Skarp på sammenhenger. Opptatt av det som faktisk skjer.
+          </p>
+          <p className="text-sm font-light leading-relaxed text-[var(--color-secondary)]">
+            Skriver om politikk, økonomi og det som skjer i rommene mellom dem.
           </p>
         </section>
       </div>
