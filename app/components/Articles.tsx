@@ -44,7 +44,7 @@ export function FeaturedArticle({
       <p className="mt-5 max-w-xl text-lg leading-7 text-[var(--color-secondary)]">
         {article.summary}
       </p>
-      <span className="mt-6 inline-flex items-center gap-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent)] transition-colors group-hover:text-[var(--color-foreground)]">
+      <span className="mt-3 inline-flex items-center gap-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent)] transition-colors group-hover:text-[var(--color-foreground)] md:mt-6">
         Les artikkel
         <span aria-hidden="true">→</span>
       </span>
