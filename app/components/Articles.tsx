@@ -18,10 +18,10 @@ export function FeaturedArticle({
   return (
     <Link
       href={`/artikler/${article.slug}`}
-      className={`group block py-10 transition sm:py-12 ${
+      className={`group block pt-10 transition sm:pt-12 ${
         isCompact
-          ? "border-b border-[var(--color-divider)]"
-          : "border-b-2 border-[var(--color-foreground)]"
+          ? "border-b border-[var(--color-divider)] pb-8 sm:pb-9"
+          : "border-b-2 border-[var(--color-foreground)] pb-10 sm:pb-12"
       }`}
     >
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
@@ -36,12 +36,12 @@ export function FeaturedArticle({
       </div>
       <h2
         className={`mt-8 max-w-4xl font-serif font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] ${
-          isCompact ? "text-[32px] sm:text-[42px]" : "text-4xl sm:text-5xl lg:text-6xl"
+          isCompact ? "text-[34px] sm:text-[44px]" : "text-4xl sm:text-5xl lg:text-6xl"
         }`}
       >
         {article.title}
       </h2>
-      <p className="mt-5 max-w-xl text-lg leading-7 text-[var(--color-secondary)]">
+      <p className="mt-5 max-w-2xl text-lg leading-7 text-[var(--color-secondary)]">
         {article.summary}
       </p>
       <span className="mt-3 inline-flex items-center gap-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent)] transition-colors group-hover:text-[var(--color-foreground)] md:mt-6">
@@ -63,7 +63,7 @@ export function ArticleList({ articles }: { articles: Article[] }) {
             href={`/artikler/${article.slug}`}
             className="group block border-t border-[var(--color-divider)] py-8 transition last:border-b"
           >
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <div className="flex items-baseline justify-between gap-x-6">
               {article.category ? (
                 <span className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-secondary)]">
                   {article.category}
@@ -80,7 +80,7 @@ export function ArticleList({ articles }: { articles: Article[] }) {
             <h3 className="mt-4 font-serif text-2xl font-bold tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] sm:text-3xl">
               {article.title}
             </h3>
-            <p className="mt-3 max-w-xl text-base leading-7 text-[var(--color-secondary)]">
+            <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--color-secondary)]">
               {article.summary}
             </p>
           </Link>

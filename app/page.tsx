@@ -48,7 +48,8 @@ export default function Home() {
             ) : null}
             {secondaryArticles.length > 0 ? (
               <>
-                <p className="mt-10 mb-4 font-condensed text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-secondary)]">
+                <p className="mt-8 mb-4 flex items-center gap-3 font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)]">
+                  <span aria-hidden="true" className="h-px w-6 bg-[var(--color-accent)]" />
                   Siste artikler
                 </p>
                 <ArticleList articles={secondaryArticles} />
