@@ -5,6 +5,13 @@ import { FeaturedArticle, ArticleList } from "@/app/components/Articles";
 export const metadata = {
   title: "Artikler – Jakob Hake-Steffensen",
   description: "Alle publiserte artikler, sortert fra nyeste til eldste.",
+  alternates: { canonical: "/artikler" },
+  openGraph: {
+    title: "Artikler – Jakob Hake-Steffensen",
+    description: "Alle publiserte artikler, sortert fra nyeste til eldste.",
+    url: "/artikler",
+    images: [{ url: "/og-image.png", width: 1584, height: 396 }],
+  },
 };
 
 export default function ArticlesPage() {
@@ -12,11 +19,11 @@ export default function ArticlesPage() {
   const [featuredArticle, ...restArticles] = sortedArticles;
 
   return (
-    <div className="min-h-screen text-[var(--color-foreground)]">
+    <main className="min-h-screen text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] transition hover:text-[var(--color-foreground)]"
+          className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
         >
           ← Forsiden
         </Link>
@@ -40,6 +47,6 @@ export default function ArticlesPage() {
           {restArticles.length > 0 ? <ArticleList articles={restArticles} /> : null}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

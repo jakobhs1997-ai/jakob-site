@@ -3,13 +3,17 @@ import Link from "next/link";
 import { articles, sortedByDateDesc } from "@/lib/articles";
 import { FeaturedArticle, ArticleList } from "@/app/components/Articles";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   const sorted = sortedByDateDesc(articles);
   const [featuredArticle, ...restArticles] = sorted;
   const secondaryArticles = restArticles.slice(0, 3);
 
   return (
-    <div className="min-h-screen text-[var(--color-foreground)]">
+    <main className="min-h-screen text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 pt-6 sm:px-8 lg:px-12">
         <section className="flex flex-col items-center gap-6 sm:flex-row sm:items-end sm:gap-8 lg:gap-10">
           <a
@@ -36,6 +40,9 @@ export default function Home() {
               <span className="block">Skarp på sammenhenger.</span>
               <span className="block">Opptatt av det som faktisk skjer.</span>
             </p>
+            <p className="mx-auto mt-2 max-w-xs font-condensed text-sm text-[var(--color-secondary)] sm:mx-0 sm:max-w-sm">
+              Analyser og kommentarer om politikk, økonomi og internasjonale forhold.
+            </p>
           </div>
         </section>
       </div>
@@ -48,7 +55,7 @@ export default function Home() {
             ) : null}
             {secondaryArticles.length > 0 ? (
               <>
-                <p className="mt-8 mb-4 flex items-center gap-3 font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)]">
+                <p className="mt-8 mb-4 flex items-center gap-3 font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent-text)]">
                   <span aria-hidden="true" className="h-px w-6 bg-[var(--color-accent)]" />
                   Siste artikler
                 </p>
@@ -60,13 +67,13 @@ export default function Home() {
           <div className="mt-10 flex justify-end">
             <Link
               href="/artikler"
-              className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] transition hover:text-[var(--color-foreground)]"
+              className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
             >
               Se alle artikler →
             </Link>
           </div>
         </section>
       </div>
-    </div>
+    </main>
   );
 }

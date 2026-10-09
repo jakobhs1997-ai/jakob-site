@@ -26,11 +26,13 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jeycup.com"),
   title: "Jakob Hake-Steffensen",
   description: "Statsvitenskap og økonomi. Skriver om det jeg legger merke til.",
   verification: {
     google: "DAKn-eyo5C2tVpKDL7sBHeFl1qsLh8T5H5VTRs8puTk",
   },
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Jakob Hake-Steffensen",
     description: "Statsvitenskap og økonomi. Skriver om det jeg legger merke til.",

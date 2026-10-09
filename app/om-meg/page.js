@@ -1,9 +1,17 @@
 export const metadata = {
   title: 'Om meg – Jakob Hake-Steffensen',
   description: 'Bakgrunn, utdanning og ferdigheter.',
+  alternates: { canonical: '/om-meg' },
+  openGraph: {
+    title: 'Om meg – Jakob Hake-Steffensen',
+    description: 'Bakgrunn, utdanning og ferdigheter.',
+    url: '/om-meg',
+    images: [{ url: '/og-image.png', width: 1584, height: 396 }],
+  },
 };
 
 import Image from "next/image";
+import Link from "next/link";
 
 const sections = [
   {
@@ -30,7 +38,7 @@ const sections = [
 
 export default function OmMegPage() {
   return (
-    <div className="min-h-screen text-[var(--color-foreground)]">
+    <main className="min-h-screen text-[var(--color-foreground)]">
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
         <div className="border-b border-[var(--color-border)] pb-10">
           <p className="font-condensed text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-secondary)]">
@@ -47,7 +55,7 @@ export default function OmMegPage() {
               />
             </div>
             <div className="sm:max-w-2xl">
-              <h1 className="font-serif text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl">
+              <h1 className="font-serif text-[44px] font-black leading-[0.95] tracking-tight sm:text-[54px]">
                 Jakob Hake-Steffensen
               </h1>
               <p className="mt-3 font-serif text-xl italic text-[var(--color-secondary)]">
@@ -57,12 +65,12 @@ export default function OmMegPage() {
                 Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker kombinasjonen til å forstå hva som faktisk driver beslutninger – i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
               </p>
               <div className="mt-6">
-                <a
+                <Link
                   href="/"
-                  className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] transition hover:text-[var(--color-foreground)]"
+                  className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
                 >
                   Tilbake til forsiden
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -86,6 +94,6 @@ export default function OmMegPage() {
           ))}
         </section>
       </div>
-    </div>
+    </main>
   );
 }

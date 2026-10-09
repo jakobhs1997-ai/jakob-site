@@ -18,7 +18,7 @@ export function FeaturedArticle({
   return (
     <Link
       href={`/artikler/${article.slug}`}
-      className={`group block pt-10 transition sm:pt-12 ${
+      className={`group block rounded-sm pt-10 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)] sm:pt-12 ${
         isCompact
           ? "border-b border-[var(--color-divider)] pb-8 sm:pb-9"
           : "border-b-2 border-[var(--color-foreground)] pb-10 sm:pb-12"
@@ -26,7 +26,7 @@ export function FeaturedArticle({
     >
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
         {eyebrow ? (
-          <span className="font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)]">
+          <span className="font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent-text)]">
             {eyebrow}
           </span>
         ) : null}
@@ -44,7 +44,7 @@ export function FeaturedArticle({
       <p className="mt-5 max-w-2xl text-lg leading-7 text-[var(--color-secondary)]">
         {article.summary}
       </p>
-      <span className="mt-3 inline-flex items-center gap-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent)] transition-colors group-hover:text-[var(--color-foreground)] md:mt-6">
+      <span className="mt-3 inline-flex items-center gap-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent-text)] transition-colors group-hover:text-[var(--color-foreground)] md:mt-6">
         Les artikkel
         <span aria-hidden="true">→</span>
       </span>
@@ -61,7 +61,7 @@ export function ArticleList({ articles }: { articles: Article[] }) {
           <Link
             key={article.slug}
             href={`/artikler/${article.slug}`}
-            className="group block border-t border-[var(--color-divider)] py-8 transition last:border-b"
+            className="group block rounded-sm border-t border-[var(--color-divider)] py-8 transition last:border-b focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
           >
             <div className="flex items-baseline justify-between gap-x-6">
               {article.category ? (
