@@ -48,7 +48,7 @@ export default function Home() {
       </div>
 
       <div className="mx-auto max-w-5xl px-6 pt-6 pb-16 sm:px-8 lg:px-12">
-        <section className="border-t border-[var(--color-accent)] pt-6">
+        <section className="border-t border-[var(--color-accent)] pt-3 sm:pt-6">
           <div>
             {featuredArticle ? (
               <FeaturedArticle article={featuredArticle} variant="compact" />

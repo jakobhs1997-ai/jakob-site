@@ -45,7 +45,7 @@ export default function OmMegPage() {
             Om meg
           </p>
           <div className="mt-5 flex flex-col gap-8 sm:flex-row sm:items-center">
-            <div className="flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]" style={{ width: 200, height: 260 }}>
+            <div className="mx-auto flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] sm:mx-0" style={{ width: 200, height: 260 }}>
               <Image
                 src="/jakob.jpg"
                 alt="Jakob Hake-Steffensen"
