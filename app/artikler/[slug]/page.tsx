@@ -87,7 +87,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           {article.summary}
         </p>
 
-        <article className="mt-10 max-w-[40rem] space-y-6 sm:mt-12">
+        <article className="mt-12 max-w-[40rem] space-y-6 sm:mt-14">
           {article.content.split("\n\n").map((paragraph, index) => (
             <p
               key={index}

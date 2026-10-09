@@ -40,8 +40,8 @@ export default function Home() {
               <span className="block">Skarp på sammenhenger.</span>
               <span className="block">Opptatt av det som faktisk skjer.</span>
             </p>
-            <p className="mx-auto mt-2 max-w-xs font-condensed text-sm text-[var(--color-secondary)] sm:mx-0 sm:max-w-sm">
-              Analyser og kommentarer om politikk, økonomi og internasjonale forhold.
+            <p className="mx-auto mt-3 font-condensed text-sm text-[var(--color-secondary)] sm:mx-0">
+              Politikk · Økonomi · Internasjonale forhold
             </p>
           </div>
         </section>

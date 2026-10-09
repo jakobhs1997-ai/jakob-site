@@ -61,7 +61,7 @@ export default function OmMegPage() {
               <p className="mt-3 font-serif text-xl italic text-[var(--color-secondary)]">
                 Statsviter, økonom og forretningsutvikler
               </p>
-              <p className="mt-6 text-lg leading-8 text-[var(--color-secondary)]">
+              <p className="mt-6 text-lg leading-8 text-[var(--color-body)]">
                 Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker kombinasjonen til å forstå hva som faktisk driver beslutninger – i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
               </p>
               <div className="mt-6">
@@ -82,11 +82,11 @@ export default function OmMegPage() {
               <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-[var(--color-foreground)]">
                 {section.title}
               </h2>
-              <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-secondary)]">
+              <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-body)]">
                 {section.details}
               </p>
               {section.note ? (
-                <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-secondary)]">
+                <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-body)]">
                   {section.note}
                 </p>
               ) : null}
