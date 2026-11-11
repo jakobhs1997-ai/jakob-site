@@ -19,7 +19,7 @@ export function FeaturedArticle({
   return (
     <Link
       href={`/artikler/${article.slug}`}
-      className={`group block rounded-sm pt-10 transition-colors duration-200 hover:bg-[#efe9df] focus-visible:bg-[#efe9df] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)] sm:pt-12 ${
+      className={`group block rounded-sm pt-10 transition-colors duration-200 hover:bg-[var(--color-surface-hover)] focus-visible:bg-[var(--color-surface-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)] sm:pt-12 ${
         isCompact
           ? "border-b border-[var(--color-divider)] pb-8 sm:pb-9"
           : "border-b-2 border-[var(--color-foreground)] pb-10 sm:pb-12"
@@ -36,7 +36,7 @@ export function FeaturedArticle({
         </span>
       </div>
       <h2
-        className={`mt-8 max-w-4xl font-serif font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] ${
+        className={`mt-8 max-w-4xl font-serif font-bold leading-[1.05] tracking-tight text-[var(--color-foreground)] ${
           isCompact ? "text-[34px] sm:text-[44px]" : "text-4xl sm:text-5xl lg:text-6xl"
         }`}
       >
@@ -63,7 +63,7 @@ export function ArticleList({ articles }: { articles: Article[] }) {
           <Link
             key={article.slug}
             href={`/artikler/${article.slug}`}
-            className="group block rounded-sm border-t border-[var(--color-divider)] py-8 transition-colors duration-200 last:border-b hover:bg-[#efe9df] focus-visible:bg-[#efe9df] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
+            className="group block rounded-sm border-t border-[var(--color-divider)] py-8 transition-colors duration-200 last:border-b hover:bg-[var(--color-surface-hover)] focus-visible:bg-[var(--color-surface-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
           >
             <div className="flex items-baseline justify-between gap-x-6">
               {article.category ? (
@@ -79,7 +79,7 @@ export function ArticleList({ articles }: { articles: Article[] }) {
                 </span>
               ) : null}
             </div>
-            <h3 className="mt-4 font-serif text-2xl font-bold tracking-tight text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)] sm:text-3xl">
+            <h3 className="mt-4 font-serif text-2xl font-bold tracking-tight text-[var(--color-foreground)] sm:text-3xl">
               {article.title}
             </h3>
             <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--color-secondary)]">

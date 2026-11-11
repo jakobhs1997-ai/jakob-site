@@ -87,15 +87,23 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           {article.summary}
         </p>
 
-        <article className="mt-12 max-w-[40rem] space-y-6 sm:mt-14">
-          {article.content.split("\n\n").map((paragraph, index) => (
-            <p
-              key={index}
-              className="text-[18px] leading-[1.7] text-[var(--color-body)] sm:text-[19px]"
-            >
-              {paragraph}
-            </p>
-          ))}
+        <article id="article-body" className="mt-12 max-w-[40rem] space-y-6 sm:mt-14">
+          {article.content.split("\n\n").map((paragraph, index) => {
+            const isPullQuote = paragraph.startsWith("> ");
+            const text = isPullQuote ? paragraph.slice(2) : paragraph;
+            return isPullQuote ? (
+              <p key={index} className="pull-quote font-serif italic">
+                {text}
+              </p>
+            ) : (
+              <p
+                key={index}
+                className="text-[18px] leading-[1.7] text-[var(--color-body)] sm:text-[19px]"
+              >
+                {text}
+              </p>
+            );
+          })}
         </article>
 
         {relatedArticles.length > 0 ? (

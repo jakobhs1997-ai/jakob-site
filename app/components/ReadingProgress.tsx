@@ -6,12 +6,26 @@ export default function ReadingProgress() {
   const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const target = document.getElementById("article-body");
+    if (!target) return;
+
     let frame = 0;
     const update = () => {
       frame = 0;
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - window.innerHeight;
-      const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      const rect = target.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const scrollable = target.offsetHeight - viewportHeight;
+
+      let progress;
+      if (scrollable > 0) {
+        progress = -rect.top / scrollable;
+      } else if (target.offsetHeight > 0) {
+        progress = Math.min(Math.max(-rect.top, 0), target.offsetHeight) / target.offsetHeight;
+      } else {
+        progress = 0;
+      }
+      progress = Math.min(Math.max(progress, 0), 1);
+
       if (barRef.current) barRef.current.style.transform = `scaleX(${progress})`;
     };
     const onScroll = () => {

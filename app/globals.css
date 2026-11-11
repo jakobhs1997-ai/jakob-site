@@ -10,6 +10,7 @@
   --section-alt: #e8e2d8;
   --divider: #d6d0c6;
   --surface: #e8e2d8;
+  --surface-hover: #efe9df;
   --border: #d0c9bf;
   --ink: #1c1c1e;
   --off-white: #f5f0e8;
@@ -25,6 +26,7 @@
   --color-accent: var(--accent);
   --color-accent-text: var(--accent-text);
   --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
   --color-section-alt: var(--section-alt);
   --color-divider: var(--divider);
@@ -130,5 +132,25 @@ header .link-underline::after {
   .link-underline::after,
   article a::after {
     transition: none;
+  }
+}
+
+.pull-quote {
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--accent);
+  color: var(--body-text);
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+.pull-quote + p {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .pull-quote {
+    font-size: 28px;
   }
 }
