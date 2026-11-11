@@ -67,7 +67,7 @@ export default function Home() {
           <div className="mt-10 flex justify-end">
             <Link
               href="/artikler"
-              className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
+              className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
             >
               Se alle artikler →
             </Link>

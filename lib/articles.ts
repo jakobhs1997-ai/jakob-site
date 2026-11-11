@@ -24,6 +24,14 @@ export function formatArticleDate(date?: string): string | null {
   });
 }
 
+export function countWords(content: string): number {
+  return content.trim().split(/\s+/).filter(Boolean).length;
+}
+
+export function calculateReadingTime(content: string): number {
+  return Math.max(1, Math.ceil(countWords(content) / 220));
+}
+
 export const articles: Article[] = [
   {
     slug: "gdansk-omdefinerer-seg-selv",

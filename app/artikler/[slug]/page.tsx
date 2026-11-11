@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { articles, formatArticleDate } from "@/lib/articles";
+import { articles, formatArticleDate, countWords, calculateReadingTime } from "@/lib/articles";
 import ReadingProgress from "@/app/components/ReadingProgress";
 import { ArticleList } from "@/app/components/Articles";
 
@@ -45,9 +45,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const formattedDate = formatArticleDate(article.date);
-  const wordCount = article.content.trim().split(/\s+/).filter(Boolean).length;
-  const readingMinutes = Math.max(1, Math.round(wordCount / 200));
-  const meta = [article.category, formattedDate, `${readingMinutes} min lesetid`].filter(Boolean);
+  const wordCount = countWords(article.content);
+  const readingMinutes = calculateReadingTime(article.content);
+  const meta = [article.category, formattedDate, `${readingMinutes} min`].filter(Boolean);
   const relatedArticles = article.category
     ? articles
         .filter((item) => item.slug !== article.slug && item.category === article.category)

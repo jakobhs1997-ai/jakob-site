@@ -27,7 +27,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative pt-1 pb-2 transition ${
+                className={`link-underline relative pt-1 pb-2 transition ${
                   isActive
                     ? "text-[var(--color-accent)]"
                     : "text-[var(--color-off-white)] hover:text-[var(--color-accent)]"
