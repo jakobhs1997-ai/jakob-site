@@ -10,7 +10,6 @@ export const metadata = {
     title: "Artikler – Jakob Hake-Steffensen",
     description: "Alle publiserte artikler, sortert fra nyeste til eldste.",
     url: "/artikler",
-    images: [{ url: "/og-image.png", width: 1584, height: 396 }],
   },
 };
 

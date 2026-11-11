@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, formatArticleDate, countWords, calculateReadingTime } from "@/lib/articles";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 import ReadingProgress from "@/app/components/ReadingProgress";
 import ArticleBody from "@/app/components/ArticleBody";
 import { ArticleList } from "@/app/components/Articles";
@@ -25,7 +26,6 @@ export async function generateMetadata({
       title,
       description: article.summary,
       url,
-      images: [{ url: "/og-image.png", width: 1584, height: 396 }],
     },
   };
 }
@@ -56,8 +56,29 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         .slice(0, 3)
     : [];
 
+  const canonicalUrl = `${SITE_URL}/artikler/${article.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.summary,
+    datePublished: article.date,
+    author: {
+      "@type": "Person",
+      name: SITE_NAME,
+      url: `${SITE_URL}/om-meg`,
+    },
+    mainEntityOfPage: canonicalUrl,
+    image: `${canonicalUrl}/opengraph-image`,
+    inLanguage: "nb-NO",
+  };
+
   return (
     <main className="min-h-screen text-[var(--color-foreground)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {wordCount > 600 ? <ReadingProgress /> : null}
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 sm:px-8 sm:pt-12 lg:px-12">
         <div className="border-b border-[var(--color-border)] pb-8">

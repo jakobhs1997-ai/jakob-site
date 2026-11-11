@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Inter_Tight } from "next/font/google";
 import Header from "./components/Header";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,24 +27,20 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jeycup.com"),
-  title: "Jakob Hake-Steffensen",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
   description: "Statsvitenskap og økonomi. Skriver om det jeg legger merke til.",
   verification: {
     google: "DAKn-eyo5C2tVpKDL7sBHeFl1qsLh8T5H5VTRs8puTk",
   },
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Jakob Hake-Steffensen",
+    title: SITE_NAME,
     description: "Statsvitenskap og økonomi. Skriver om det jeg legger merke til.",
-    url: "https://jeycup.com",
-    images: [
-      {
-        url: "https://jeycup.com/og-image.png",
-        width: 1584,
-        height: 396,
-      },
-    ],
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

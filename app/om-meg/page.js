@@ -6,7 +6,6 @@ export const metadata = {
     title: 'Om meg – Jakob Hake-Steffensen',
     description: 'Bakgrunn, utdanning og ferdigheter.',
     url: '/om-meg',
-    images: [{ url: '/og-image.png', width: 1584, height: 396 }],
   },
 };
 
