@@ -49,12 +49,25 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const wordCount = countWords(article.content);
   const readingMinutes = calculateReadingTime(article.content);
   const meta = [article.category, formattedDate, `${readingMinutes} min`].filter(Boolean);
-  const relatedArticles = article.category
+  const sameCategoryArticles = article.category
     ? articles
         .filter((item) => item.slug !== article.slug && item.category === article.category)
         .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""))
         .slice(0, 3)
     : [];
+  const fillCount = 3 - sameCategoryArticles.length;
+  const fillArticles =
+    fillCount > 0
+      ? articles
+          .filter(
+            (item) =>
+              item.slug !== article.slug &&
+              !sameCategoryArticles.some((related) => related.slug === item.slug)
+          )
+          .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""))
+          .slice(0, fillCount)
+      : [];
+  const relatedArticles = [...sameCategoryArticles, ...fillArticles];
 
   const canonicalUrl = `${SITE_URL}/artikler/${article.slug}`;
   const jsonLd = {
@@ -120,6 +133,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <ArticleList articles={relatedArticles} />
           </div>
         ) : null}
+
+        <div className="mt-10 flex justify-end">
+          <Link
+            href="/artikler"
+            className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
+          >
+            ← Alle artikler
+          </Link>
+        </div>
       </div>
     </main>
   );
