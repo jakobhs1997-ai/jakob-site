@@ -20,6 +20,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Publisere ny artikkel
+
+1. Kopier `content/artikler/_mal.md` til en ny fil i samme mappe, f.eks. `content/artikler/min-artikkel.md`. Filnavnet (uten `.md`) blir artikkelens URL.
+2. Fyll ut frontmatter (`tittel`, `dato`, `kategori`, `ingress`) og skriv artikkelteksten under. Sett `utkast: true` i frontmatter hvis artikkelen ikke skal publiseres ennå.
+3. Commit og push til `main`. Artikkelen dukker opp automatisk ved neste deploy.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

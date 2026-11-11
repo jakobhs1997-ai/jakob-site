@@ -1,3 +1,7 @@
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+
 export interface Article {
   slug: string;
   title: string;
@@ -6,6 +10,38 @@ export interface Article {
   category?: string;
   date?: string;
 }
+
+const ARTICLES_DIR = path.join(process.cwd(), "content", "artikler");
+
+function loadArticles(): Article[] {
+  if (!fs.existsSync(ARTICLES_DIR)) return [];
+
+  const isProduction = process.env.NODE_ENV === "production";
+  const files = fs
+    .readdirSync(ARTICLES_DIR)
+    .filter((file) => file.endsWith(".md") && !file.startsWith("_"));
+
+  const loaded: Article[] = [];
+  for (const file of files) {
+    const slug = file.slice(0, -".md".length);
+    const raw = fs.readFileSync(path.join(ARTICLES_DIR, file), "utf8");
+    const { data, content } = matter(raw);
+
+    if (isProduction && data.utkast === true) continue;
+
+    loaded.push({
+      slug,
+      title: data.tittel ?? "",
+      summary: data.ingress ?? "",
+      content: content.trim(),
+      category: data.kategori || undefined,
+      date: data.dato || undefined,
+    });
+  }
+  return loaded;
+}
+
+export const articles: Article[] = loadArticles();
 
 export function sortedByDateDesc(list: Article[]): Article[] {
   return [...list].sort((a, b) => {
@@ -24,78 +60,25 @@ export function formatArticleDate(date?: string): string | null {
   });
 }
 
-function stripPullQuoteMarkers(content: string): string {
-  return content
-    .split("\n\n")
-    .map((paragraph) => (paragraph.startsWith("> ") ? paragraph.slice(2) : paragraph))
-    .join("\n\n");
+function stripMarkdownSyntax(markdown: string): string {
+  return markdown
+    // links: [text](url) -> text
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    // headings: leading #'s
+    .replace(/^#{1,6}\s+/gm, "")
+    // blockquote markers
+    .replace(/^>\s?/gm, "")
+    // list markers (-, *, + or "1.") at line start
+    .replace(/^\s*(?:[-*+]|\d+\.)\s+/gm, "")
+    // bold / italic markers
+    .replace(/(\*\*|__)(.*?)\1/g, "$2")
+    .replace(/(\*|_)(.*?)\1/g, "$2");
 }
 
 export function countWords(content: string): number {
-  return stripPullQuoteMarkers(content).trim().split(/\s+/).filter(Boolean).length;
+  return stripMarkdownSyntax(content).trim().split(/\s+/).filter(Boolean).length;
 }
 
 export function calculateReadingTime(content: string): number {
   return Math.max(1, Math.ceil(countWords(content) / 220));
 }
-
-export const articles: Article[] = [
-  {
-    slug: "gdansk-omdefinerer-seg-selv",
-    title: "Gdansk omdefinerer seg selv",
-    category: "Industri",
-    summary:
-      "Polen satser tungt på havvind i Østersjøen. Verftskvarteret i Gdansk er stedet de valgte.",
-    date: "2026-06-08",
-    content:
-      "Gdansk har en industrihistorie som få europeiske byer kan matche. Verftskvarteret på Ostrów-øya var i tiår synonymt med tung stålproduksjon, arbeidskonflikter og til slutt nedleggelse. Det var her Solidarność under Lech Wałęsa ble født i 1980, ikke som en abstrakt politisk bevegelse, men som et konkret svar på industriell krise og statlig mislighold. Da verftsportene ble stengt på 80- og 90-tallet, stod store deler av kvarteret tomt.\n\n> Det står ikke tomt lenger.\n\nBaltic Towers er et joint venture mellom det spanske selskapet GRI Renewable Industries og det polske statlige industrifondet ARP. Fabrikken ligger på de samme områdene som de nedlagte verftene og er Polens første produksjonsanlegg for vindturbintårn, med en investering på rundt 200 millioner euro. Den produserer tårnseksjoner på opptil 50 meter i lengde, 11 meter i diameter og 500 tonn per seksjon. Kapasiteten er satt til 150 seksjoner i året.\n\nDimensjonene er ikke tilfeldige. Neste generasjons havvindturbiner krever tårn ingen lastebil kan frakte. Det krever direkte sjøtilgang og tungt løfterutstyr, og det er nøyaktig hva verftskvarteret tilbyr. Ikke en tilfeldig lokasjon. En lokasjon som fungerer fordi infrastrukturen allerede lå der, halvt forlatt.\n\nProsjektet henter mesteparten av materialene lokalt og har aktivert tidligere industriområder som ellers ville fortsatt å forfalle. Gammel grunn, ny bruk.\n\nBaltic Towers er ikke et pilotprosjekt. Polen har forpliktet seg til 18 GW havvind innen 2040 – nok til å dekke en tredjedel av landets strømforbruk – og Gdansk har posisjonert seg i forsyningskjeden før markedet er modent. Det kalles ikke industripolitikk. Det er industripolitikk.\n\nSolidarność kjempet mot industriell nedgang i de samme portene. Det er en merkelig sirkel å stå i.",
-  },
-  {
-    slug: "norges-eu-tilknytning",
-    title: "Paradokset EU",
-    category: "Politikk",
-    summary: "Den norske EU-debatten handler nesten alltid om medlemskap. Det er feil spørsmål.",
-    date: "2026-08-07",
-    content:
-      "Den norske EU-debatten har et problem. Mens EU har utviklet seg til å bli en reguleringsmakt med direkte innvirkning på norsk næringsliv, arbeidsmarked og lovgivning, sitter Norge fastlåst i en binær debatt fra 1994. Spørsmålet er ikke lenger om vi skal inn. Spørsmålet er hva vi faktisk har sagt ja til allerede.\n\nNorge er allerede tettere integrert i EU enn de fleste nordmenn er klar over. EØS-avtalen gir oss tilgang til det indre marked, men ikke en stol ved bordet. Vi importerer regler vi ikke har stemt over, vi betaler inn til fond vi ikke styrer, vi sitter utenfor rommet der beslutningene fattes, men lever med konsekvensene av dem.\n\nEØS er en pragmatisk løsning på et genuint dilemma: Norge er for lite til å klare seg uten tett integrasjon med Europa og samtidig for selvbevisst til å gi fra seg suverenitet formelt. Avtalen løser begge problemene ved korsveien.\n\nHalvveis løsninger har kostnader. Den mest undervurderte er ikke økonomisk, men politisk. Norske politikere kan ikke ta æren for politikk de er med på å forme, fordi den formelt sett kommer fra Brussel. Og de kan ikke ta ansvar for politikk de ikke liker, fordi de ikke hadde stemmerett. Resultatet er en ansvarspulverisering som sjelden diskuteres åpent. Ukraina-krigen har gjort dette mer synlig. EU har brukt krisen til å bygge en mer samkjørt forsvarspolitikk, energipolitikk og industripolitikk. Norge er med på noe av det gjennom bilaterale avtaler og NATO, men ikke i sin helhet. Vi plukker og velger fra utsiden.\n\nSpørsmålet er ikke om Norge bør melde seg inn i EU. Det spørsmålet er avgjort. Spørsmålet er om EØS fortsatt er den riktige rammen eller om vi har vokst oss inn i en avtale som begrenser handlefriheten vår på områder vi burde bestemme selv. Migrasjonspolitikk er det tydeligste eksempelet. Norge har håndtert flyktningsituasjonen annerledes enn Sverige og Danmark, med ulike resultater. Likevel er vi bundet av felles europeiske rammer som ikke alltid er i tråd med norske prioriteringer.\n\nEt nordisk alternativ diskuteres sjelden seriøst, men fortjener det. Sammen med Sverige, Danmark og Finland deler Norge verdier, historikk og sikkerhetspolitiske interesser på en måte som er mer dyptgripende enn det som binder Oslo til Budapest gjennom EU. Et tettere nordisk militært og økonomisk samarbeid ville gi mer reell innflytelse enn en avtale der vi tar imot regler vi ikke har vært med på å utforme.",
-  },
-  {
-    slug: "demokratiet-bak-fasaden",
-    title: "Demokratiet bak fasaden",
-    category: "Politikk",
-    summary: "Valgene er gjennomført på vanlig måte. Det er resultatet som har skapt bråk.",
-    date: "2026-09-17",
-    content:
-      "Den siste tiden har det vært valg i flere europeiske land. I Romania ble første valgomgang annullert. I Frankrike mobiliserte etablissementet mot Le Pen. I Tyskland er AfD utestengt fra koalisjonsforhandlinger på forhånd. Mønsteret er det samme: stemmer telles, men konsekvensene forhandles bort.\n\nAfD vant delstatsvalget i Sachsen-Anhalt med over 43 prosent. En dobling fra forrige valg. CDU, som hadde styrt delstaten i 24 år, falt til under 18 prosent. Ingen stiller spørsmål ved demokratiet når etablerte partier vinner. Men da AfD gjorde sitt beste valg noensinne, tok 150 000 mennesker til gatene i 20 byer med krav om å forby partiet. Forbundskansler Friedrich Merz avviste det som en mulighet. Spørsmålet som derimot ingen svarte på: Hvorfor er det legitimt å ville forby et parti som halvparten av velgerne nettopp har stemt på?\n\nI Sverige så vi det samme mønsteret før valget i høst. Mye av mediedekningen av Sverigedemokratene bygget på én forutsetning: at et godt SD-resultat var et problem som trengte forklaring, ikke et demokratisk utfall som trengte respekt. At over 20 somaliske bussjåfører sykmeldte seg i protest mot valgkampen, fikk bred dekning. At SD siden 2010 konsekvent har stilt seg mot masseinnvandring og for en strengere kriminalitetspolitikk, altså det velgerne faktisk stemte på, ble behandlet med betydelig mindre interesse. Partiet ble i stedet diskutert som et symptom på noe galt med velgerne.\n\nDet er selvsagt mulig å ha legitime innvendinger mot både AfD og SD. Begge har hatt representanter som har sagt ting som ikke tåler dagens lys, og det er rimelig å stille spørsmål ved enkeltpolitikere. Men det er noe annet enn å avvise velgermassen. Når kommentatorer snakker om AfD-velgere som om de er lurt, eller om SD-velgere som om de ikke skjønner sitt eget beste, er det ikke politisk analyse. Det er forakt. Og forakt driver folk mot disse partiene, ikke vekk fra dem.\n\nFremmedgjøring er ordet for det som skjer når en styrende klasse over tid ignorerer store deler av befolkningens bekymringer. Det er ikke et høyreekstremt begrep, men snarere et sosiologisk faktum. Når arbeidsplasser forsvinner, når nabolag endrer seg raskere enn folk klarer å absorbere, når ingen i maktapparatet snakker om det man selv ser hver dag, da søker folk andre steder. AfD og SD er ikke årsaken til fremmedgjøringen, de er svaret på den. At etablissementet ikke liker svaret, fritar dem ikke fra ansvaret for spørsmålet.\n\nSpørsmålet er ikke om disse partiene har rett. Spørsmålet er om vi har et demokrati der resultater bare er gyldige når de passer dem som allerede har makten. Det burde bekymre langt flere enn AfD- og SD-velgere.",
-  },
-  {
-    slug: "vestens-skjebnesymfoni",
-    title: "Vestens skjebnesymfoni",
-    category: "Politikk",
-    summary:
-      "Ytringsfriheten står under press. Spørsmålet er ikke om noen ytringer er ubehagelige, det er hvem som skal ha makt til å avgjøre det.",
-    date: "2026-09-22",
-    content:
-      "I 2024 ble over 30 personer arrestert daglig i Storbritannia for ytringer på sosiale medier. EUs Digital Services Act pålegger plattformer å fjerne innhold myndighetene definerer som skadelig. I Sverige vurderer regjeringen å kriminalisere «glorifisering» av kriminelle gjenger, en kategori så vid at den kan ramme ordinær journalistikk. Presset er ikke koordinert. Det er noe verre: det er parallelt.\n\nI Norge har debatten om ytringsfrihet, pressefrihet og redaktørstyrte medier blusset opp igjen. Språkrådet definerer ytringsfrihet som en menneskerettighet til å uttrykke egne meninger og livssyn. Uenigheten handler om hvor grensen går. Enkelte mener at hatefulle ytringer og rasisme bør møtes med lovforbud, og det er forståelig. Men når «feilkjønning» havner i samme kategori, handler det ikke lenger om rettslig beskyttelse av individer. Vi er i ferd med å regulere språket.\n\nMen hvem definerer hva som er hatefullt eller ufint? Norge har ingen nasjonal bestemmelse om dette, og det er en styrke. Begrenser man individers rett til å uttrykke seg gjennom språk, handling eller klesstil, knebler man samtidig identiteten deres. Det kan være mer alvorlig enn det man forsøker å hindre. Man skal selvsagt ikke sette andre i fare, men det ligger allerede i lovverket.\n\nPå Arendalsuken foreslo daværende AUF-leder Gaute Skjervø å frata «alternative medier» som Resett, iNyheter og Document pressestøtte, fordi de etter hans mening ikke oppfyller standardene i Vær Varsom-plakaten. Det er et kuriøst argument. NRK er blitt felt av PFU 33 ganger de siste ti årene, flest av alle mediehus. TV 2 og Finansavisen følger med 21 fellinger hver, med VG på fjerdeplass. Dersom antall brudd på presseetikken er terskelen for «ekte journalistikk», er det ikke de alternative mediene Skjervø primært burde rette søkelyset mot.\n\nSpørsmålet er hva dette egentlig handler om. Pressestøtten er ikke politisk nøytral, den er en beslutning om hvilke stemmer som er verdt å opprettholde. Når kriteriet for støtte tolkes slik at etablerte mediehus med dokumentert høyere bruddrate passerer, mens mindre aktører med andre politiske utgangspunkt ikke gjør det, er det vanskelig å se det som annet enn selektiv håndheving. Ikke nødvendigvis bevisst. Men selektiv.\n\nNorge er ikke alene. I Storbritannia har Online Safety Act skapt en løpende debatt om hvor grensen går mellom skadelig innhold og lovlig, men ubehagelig, meningsytring. The Times kunne rapportere om over 30 arrestasjoner per dag for støtende meldinger på nett, noe som kulminerer i over 10 000 arrestasjoner i året. I Sverige har mediepolitikken blitt kritisert fra begge sider: av høyre for å opprettholde støtte til venstredominerte redaksjoner, og av venstre for å true pressefrihetens uavhengighet. EU jobber med regulering av plattformer som i praksis avgjør hva hundrevis av millioner mennesker ser og ikke ser. Problemet er ikke særnorsk, det er et vestlig mønster: ønsket om å rydde opp i informasjonsrommet ender lett med at noen bestemmer hva som er verdt å rydde opp i.\n\nYtringsfrihet som bare gjelder meninger du er enig i, er ikke ytringsfrihet.",
-  },
-  {
-    slug: "rentekutt-for-alle",
-    title: "Rentekutt for alle?",
-    category: "Politikk",
-    summary:
-      "Slagordet handlet om et resultat. Nå beskriver Ap det som en fremgangsmåte.",
-    date: "2026-09-28",
-    content:
-      "I innspurten av valgkampen i fjor kjørte Arbeiderpartiet budskapet «Rentekutt for alle – eller skattekutt for noen få?». Slagordet tegnet et klart bilde: rentekutt var noe Ap ville levere, skattelettelser var Høyres sak. 24. september hevet Norges Bank styringsrenten til 4,5 prosent. Det er den andre økningen siden mai.\n\nRentebeslutningen er ikke regjeringens mandat. Finansminister Jens Stoltenberg sa selv i Stortingets spørretime i mars at det er Norges Bank som setter renten. Likevel ble budskapet solgt som noe velgeren kunne stemme frem. På trikken i Oslo kunne vi se plakater av Støre og Stoltenberg som om de nærmest reklamerte for budskapet. I NRKs «Debatten» sa Støre at ingen finner et sitat der han tar æren for at renten går ned. Da konfronterte Høyres Ola Svenneby ham med at Ap faktisk reklamerte for det på trikken. Ti dager etter valget, da Norges Bank 18. september kunngjorde rentekutt, sa Støre at regjeringens trygge økonomiske politikk «har vært med på å legge grunnlaget for lavere prisvekst og rentekutt».\n\nArbeiderpartiet sier nå at partiet aldri har lovet rentekutt. Morgenen torsdag 24. september, før rentebeslutningen ble kunngjort, lå valgkampplakaten fremdeles ute på Nordland Arbeiderpartis nettsider. Timer etter at renteøkningen ble annonsert, var den borte. Partiets kommunikasjonssjef sier at siden stammet fra valgkampen og ble oppdatert som en rutine. Timingen taler for seg selv. Samme dag sa finanspolitisk talsperson Tuva Moflag i Debatten at partiet har vært tydelig på at det er sentralbanken som setter renten: «det sa vi da og det sier vi nå.» Poenget er at beskrivelsen av løftet har endret seg. Moflag sier at Ap gikk til valg på «trygg økonomisk styring for folks hverdagsøkonomi». Dette er altså en fremgangsmåte. Slagordet på plakatene var et løfte om et resultat. Da renten ble satt ned, koblet Støre de to sammen. Nå som renten går opp, er koblingen borte.\n\nSlagordet var formulert som et valg, men valget var mellom rentekutt og skattekutt, ikke mellom to renteprognoser. Et parti kan love politikk som legger til rette for lavere rente. Det er noe annet enn å love rentekutt for alle. Skal et resultatløfte ha dekning, må det i stor grad gå via finanspolitikken, som er den kanalen regjeringen faktisk har direkte kontroll over. Der er dekningen tynn. Finansdepartementets beregninger viser at finanspolitikken virker om lag nøytralt i år og neste år, og at budsjettene for 2024 til 2026 samlet virker ekspansivt. Regjeringen har ikke strammet inn.\n\nStoltenberg svarte i mars at Norges Bank satte ned renten to ganger i fjor og at mange forhold påvirker renten, også det som skjer i verden. Det stemmer. Men renten lå på 4,5 prosent fra desember 2023 til det første kuttet i juni 2025, og står der igjen nå. Støre pekte dessuten på politikken som en del av forklaringen på det siste kuttet. Et internasjonalt sjokk forklarer ikke alt. Norges Bank mente allerede i juni at renten trolig måtte stige. I august ble den holdt uendret fordi prisveksten var lavere enn ventet, men vurderingen av utsiktene ble ikke vesentlig endret. Prisveksten har ligget over målet i flere år. Økte energi- og råvarepriser og renteøkninger i USA og eurosonen kommer på toppen av dette igjen. Velgerne kan ikke stemme frem en rentebeslutning. Det visste Ap også da plakatene gikk i trykken.",
-  },
-  {
-    slug: "alle-skal-mene-noe",
-    title: "Alle skal mene noe",
-    category: "Politikk",
-    summary:
-      "Du trenger ikke politisk tyngde for å få statsministeren på besøk. Et stort publikum kan være nok.",
-    date: "2026-10-24",
-    content:
-      "Veien fra underholdning til samfunnsdebatt har blitt kort. I dag holder det at en influenser uttaler seg om en politisk sak, og så omtales vedkommende som en «samfunnsdebattant». Samfunnsengasjement er nødvendig i et demokrati, og det er en styrke at flere slipper til. Men retten til å delta gjør ikke alle påstander like godt begrunnet.\n\nPopularitet gir tilgang. Tilgang gir legitimitet. Det er få som lykkes med å bygge et stort publikum, men de som gjør det, får innflytelse langt utover det de opprinnelig ble kjent for. I 2025 takket Jonas Gahr Støre, Erna Solberg og Sylvi Listhaug ja til å delta hos influenserkollektivet «Gutta». Oskar Westerlin sa selv til DN at han neppe ble oppfattet som en person med særlig politisk tyngde. Politikerne kom likevel.\n\nDet er forståelig at de oppsøker velgerne der de befinner seg. Men når statsministeren sier ja, er det vertene som setter rammene for samtalen, og det gir innflytelse uavhengig av politisk kompetanse.\n\nVi stoler på mennesker vi føler vi kjenner. En influenser vi har fulgt i årevis kan virke mer troverdig enn en fagperson vi aldri har hørt om. En studie publisert i Human Communication Research i 2025 viste at politiske budskap fra influensere særlig påvirket følgere som hadde en sterk tilknytning til dem. Tilliten vi har til personen kan få større betydning enn grunnlaget for påstanden.\n\n> Oppmerksomhet gjør en person relevant – den gjør ikke argumentene bedre.\n\nI sosiale medier er oppmerksomhet en valuta. Reaksjoner gir rekkevidde, og rekkevidde kan gi både inntekter og innflytelse. Dette skaper insentiver til å mene noe offentlig, også om spørsmål man har begrenset kunnskap om. Prisen er at nyansene forsvinner. Jo mer man forstår av et komplisert spørsmål, desto tydeligere ser man hvor mye som er uavklart. Slike forbehold passer sjelden godt i en kort video. Den som sier «dette vet jeg lite om» vekker sjelden samme oppmerksomhet som den som hevder å ha svaret på alt.\n\nKunnskap trenger ikke komme med en akademisk tittel, men den kan etterprøves. Den som uttaler seg bør derfor kunne svare på to spørsmål: Hva bygger du påstandene på, og hva ville fått deg til å skifte mening?\n\nAntall mennesker som lytter til deg, sier ingenting om hvor mye du har å si.",
-  },
-];

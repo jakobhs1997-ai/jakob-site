@@ -152,3 +152,21 @@ header .link-underline::after {
     font-size: 28px;
   }
 }
+
+.article-h2,
+.article-h3 {
+  margin-bottom: 0;
+}
+
+.article-h2 {
+  margin-top: 3rem;
+}
+
+.article-h3 {
+  margin-top: 2.5rem;
+}
+
+.article-h2 + *,
+.article-h3 + * {
+  margin-top: 1rem;
+}
