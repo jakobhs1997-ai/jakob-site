@@ -170,3 +170,50 @@ header .link-underline::after {
 .article-h3 + * {
   margin-top: 1rem;
 }
+
+.has-drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-playfair), serif;
+  font-weight: 900;
+  color: var(--accent-text);
+  font-size: 4.6em;
+  line-height: 0.82;
+  padding-right: 0.08em;
+  margin-top: 0.03em;
+}
+
+@media (max-width: 639px) {
+  .has-drop-cap::first-letter {
+    font-size: 3.4em;
+    line-height: 0.84;
+  }
+}
+
+@supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+  .has-drop-cap::first-letter {
+    float: none;
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+    font-size: inherit;
+    line-height: inherit;
+    margin-top: 0;
+    padding-right: 0.1em;
+  }
+
+  @media (max-width: 639px) {
+    .has-drop-cap::first-letter {
+      -webkit-initial-letter: 2;
+      initial-letter: 2;
+    }
+  }
+}
+
+.has-end-mark::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-left: 0.4em;
+  background-color: var(--accent);
+  vertical-align: middle;
+}

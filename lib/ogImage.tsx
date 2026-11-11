@@ -40,7 +40,7 @@ export function titleFontSize(title: string): number {
 
 // Shared bottom row ("Jakob Hake-Steffensen" + "jeycup.com") used by both the
 // default share image and the per-article one.
-export function ShareCardFooter() {
+export function ShareCardFooter({ showName = true }: { showName?: boolean }) {
   return (
     <div
       style={{
@@ -50,17 +50,21 @@ export function ShareCardFooter() {
         alignItems: "baseline",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          fontFamily: "Playfair Display",
-          fontWeight: 900,
-          fontSize: 28,
-          color: "#c9a84c",
-        }}
-      >
-        Jakob Hake-Steffensen
-      </div>
+      {showName ? (
+        <div
+          style={{
+            display: "flex",
+            fontFamily: "Playfair Display",
+            fontWeight: 900,
+            fontSize: 28,
+            color: "#c9a84c",
+          }}
+        >
+          Jakob Hake-Steffensen
+        </div>
+      ) : (
+        <div style={{ display: "flex" }} />
+      )}
       <div
         style={{
           display: "flex",
@@ -129,7 +133,7 @@ export async function renderDefaultShareImage() {
           </div>
         </div>
 
-        <ShareCardFooter />
+        <ShareCardFooter showName={false} />
       </div>
     ),
     { ...OG_SIZE, fonts }
