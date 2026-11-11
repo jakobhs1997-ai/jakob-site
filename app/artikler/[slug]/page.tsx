@@ -128,7 +128,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <div className="mt-16 max-w-[40rem] border-t border-[var(--color-divider)] pt-10">
             <p className="mb-4 flex items-center gap-3 font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent-text)]">
               <span aria-hidden="true" className="h-px w-6 bg-[var(--color-accent)]" />
-              Relaterte artikler
+              Les videre
             </p>
             <ArticleList articles={relatedArticles} />
           </div>
