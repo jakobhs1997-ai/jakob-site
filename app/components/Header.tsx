@@ -16,7 +16,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-8 lg:px-12">
         <Link
           href="/"
-          className="font-serif text-xl font-semibold tracking-tight text-[var(--color-off-white)] transition hover:text-[var(--color-accent)] sm:text-2xl"
+          className="font-serif text-xl font-semibold tracking-tight text-[var(--color-accent)] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[var(--color-off-white)] sm:text-2xl"
         >
           Jakob Hake-Steffensen
         </Link>
