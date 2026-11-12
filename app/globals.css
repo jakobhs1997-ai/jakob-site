@@ -84,13 +84,14 @@ footer::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
 }
 
-a {
-  color: var(--accent-text);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--accent-text);
+/* Base link styles live in the base layer so Tailwind color utilities on a link
+   (header, footer, CTAs) can override them. Unlayered, this rule beat every
+   utility and painted header links dark gold on the dark header (2.95:1). */
+@layer base {
+  a {
+    color: var(--accent-text);
+    text-decoration: none;
+  }
 }
 
 a:focus-visible,
