@@ -87,7 +87,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   };
 
   return (
-    <main className="min-h-screen text-[var(--color-foreground)]">
+    <main id="innhold" tabIndex={-1} className="min-h-screen text-[var(--color-foreground)] focus:outline-none">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

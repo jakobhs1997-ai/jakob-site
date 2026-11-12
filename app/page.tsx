@@ -13,7 +13,7 @@ export default function Home() {
   const secondaryArticles = restArticles.slice(0, 3);
 
   return (
-    <main className="min-h-screen text-[var(--color-foreground)]">
+    <main id="innhold" tabIndex={-1} className="min-h-screen text-[var(--color-foreground)] focus:outline-none">
       <div className="mx-auto max-w-5xl px-6 pt-6 sm:px-8 lg:px-12">
         <section className="flex flex-col items-center gap-6 sm:flex-row sm:items-end sm:gap-8 lg:gap-10">
           <a

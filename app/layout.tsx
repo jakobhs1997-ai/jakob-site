@@ -51,10 +51,16 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="no"
+      lang="nb"
       className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${interTight.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#innhold"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10001] focus:bg-[var(--color-off-white)] focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--color-ink)] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[var(--color-accent)]"
+        >
+          Hopp til innhold
+        </a>
         <Header />
         {children}
 

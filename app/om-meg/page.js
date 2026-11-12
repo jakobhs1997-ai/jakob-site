@@ -37,7 +37,7 @@ const sections = [
 
 export default function OmMegPage() {
   return (
-    <main className="min-h-screen text-[var(--color-foreground)]">
+    <main id="innhold" tabIndex={-1} className="min-h-screen text-[var(--color-foreground)] focus:outline-none">
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
         <div className="border-b border-[var(--color-border)] pb-10">
           <p className="font-condensed text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-secondary)]">
