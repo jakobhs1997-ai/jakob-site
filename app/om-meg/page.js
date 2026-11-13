@@ -23,7 +23,7 @@ const sections = [
     id: "utdanning",
     title: "Utdanning",
     details:
-      "Bachelor i statsvitenskap, NTNU (2018–2021). Bachelor i økonomi og administrasjon, OsloMet (2023–2026).",
+      "Bachelor i statsvitenskap, NTNU. Økonomi og administrasjon, OsloMet.",
     note: "Statsvitenskap kom først. Deretter økonomi. Det er ikke tilfeldig, men fordi jeg merket at politisk analyse uten forståelse for insentiver fort blir luftig. De to fagene leses bedre sammen enn hver for seg.",
   },
   {
