@@ -64,11 +64,14 @@ export default function OmMegPage() {
                 Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker kombinasjonen til å forstå hva som faktisk driver beslutninger – i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
               </p>
               <p className="mt-6">
+                <span className="mr-3 font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-secondary)]">
+                  Ta kontakt
+                </span>
                 <a
                   href="mailto:kontakt@jeycup.com"
                   className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
                 >
-                  Ta kontakt →
+                  kontakt@jeycup.com →
                 </a>
               </p>
               <div className="mt-6">
