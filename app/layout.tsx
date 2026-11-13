@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Inter_Tight } from "next/font/google";
+import Link from "next/link";
 import Header from "./components/Header";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import "./globals.css";
@@ -66,9 +67,23 @@ export default function RootLayout({
 
         <footer className="mt-auto border-t border-[#c9a84c]/30 bg-[var(--color-ink)]">
           <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-8 sm:px-8 lg:px-12">
-            <p className="font-condensed text-xs uppercase tracking-[0.15em] text-[var(--color-off-white)] opacity-70">
-              Jakob Hake-Steffensen
-            </p>
+            <div className="flex flex-col gap-1 font-condensed text-xs uppercase tracking-[0.15em] text-[var(--color-off-white)]">
+              <p className="opacity-70">Jakob Hake-Steffensen</p>
+              <p className="flex flex-wrap gap-x-4 gap-y-1">
+                <a
+                  href="mailto:kontakt@jeycup.com"
+                  className="link-underline text-[var(--color-off-white)] opacity-70 transition hover:opacity-100"
+                >
+                  kontakt@jeycup.com
+                </a>
+                <Link
+                  href="/personvern"
+                  className="link-underline text-[var(--color-off-white)] opacity-70 transition hover:opacity-100"
+                >
+                  Personvern
+                </Link>
+              </p>
+            </div>
             <a
               href="https://linkedin.com/in/jeycup/"
               target="_blank"
