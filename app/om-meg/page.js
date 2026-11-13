@@ -63,6 +63,14 @@ export default function OmMegPage() {
               <p className="mt-6 text-lg leading-8 text-[var(--color-body)]">
                 Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker kombinasjonen til å forstå hva som faktisk driver beslutninger – i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
               </p>
+              <p className="mt-6">
+                <a
+                  href="mailto:kontakt@jeycup.com"
+                  className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
+                >
+                  Ta kontakt →
+                </a>
+              </p>
               <div className="mt-6">
                 <Link
                   href="/"
