@@ -46,7 +46,10 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <div className="mt-8 max-w-xl">
+        <p className="mt-8 max-w-xl text-base leading-7 text-[var(--color-body)]">
+          Bachelor i statsvitenskap fra NTNU. Økonomi og administrasjon ved OsloMet. Jeg har jobbet med forretningsutvikling og partnerskap, blant annet som medgrunnlegger av NJORD. Her skriver jeg om politikk og økonomi.
+        </p>
+        <div className="mt-6 max-w-xl">
           <SubscribeForm title="Nye artikler på e-post" />
         </div>
       </div>
