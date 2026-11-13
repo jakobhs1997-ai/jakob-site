@@ -58,10 +58,10 @@ export default function OmMegPage() {
                 Jakob Hake-Steffensen
               </h1>
               <p className="mt-3 font-serif text-xl text-[var(--color-secondary)]">
-                Statsviter, økonom og forretningsutvikler
+                Politikk, økonomi og beslutningene bak
               </p>
               <p className="mt-6 text-lg leading-8 text-[var(--color-body)]">
-                Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker kombinasjonen til å forstå hva som faktisk driver beslutninger – i markedet, i politikken og i rommene mellom dem. Til daglig jobber jeg med relasjonsbygging og forretningsutvikling.
+                Jeg har bakgrunn fra statsvitenskap og økonomi, og bruker kombinasjonen til å forstå hva som faktisk driver beslutninger: i markedet, i politikken og i rommene mellom dem. Jeg har jobbet med forretningsutvikling og partnerskap, blant annet som medgrunnlegger av NJORD.
               </p>
               <p className="mt-6">
                 <span className="mr-3 font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-secondary)]">
