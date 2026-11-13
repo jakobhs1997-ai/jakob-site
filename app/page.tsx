@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { articles, sortedByDateDesc } from "@/lib/articles";
 import { FeaturedArticle, ArticleList } from "@/app/components/Articles";
+import SubscribeForm from "@/app/components/SubscribeForm";
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -45,6 +46,9 @@ export default function Home() {
             </p>
           </div>
         </section>
+        <div className="mt-8 max-w-xl">
+          <SubscribeForm title="Nye artikler på e-post" />
+        </div>
       </div>
 
       <div className="mx-auto max-w-5xl px-6 pt-6 pb-16 sm:px-8 lg:px-12">

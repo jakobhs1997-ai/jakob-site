@@ -5,6 +5,7 @@ import { SITE_URL, SITE_NAME } from "@/lib/site";
 import ReadingProgress from "@/app/components/ReadingProgress";
 import ArticleBody from "@/app/components/ArticleBody";
 import { ArticleList } from "@/app/components/Articles";
+import SubscribeForm from "@/app/components/SubscribeForm";
 
 export async function generateMetadata({
   params,
@@ -123,6 +124,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </p>
 
         <ArticleBody content={article.content} />
+
+        <aside aria-label="Abonner" className="mt-16 max-w-[40rem] border-t border-[var(--color-divider)] pt-10">
+          <SubscribeForm title="Få neste artikkel på e-post" />
+        </aside>
 
         {relatedArticles.length > 0 ? (
           <div className="mt-16 max-w-[40rem] border-t border-[var(--color-divider)] pt-10">
