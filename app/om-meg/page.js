@@ -17,7 +17,7 @@ const sections = [
     id: "hva-jeg-er-opptatt-av",
     title: "Hva jeg er opptatt av",
     details:
-      "Jeg følger særlig med på Europa – hva som holder det sammen, og hva som ikke gjør det lenger. Energi som pressmiddel. Partier som vokser ved å tape støtten de hadde. Det jeg egentlig er opptatt av er gapet mellom hva som sies om politikk og hva den faktisk gjør. Den analysen er sjelden den som slipper til i nyhetene.",
+      "Jeg følger særlig med på Europa: hva som holder det sammen, og hva som ikke gjør det lenger. Energi som pressmiddel. Partier som vokser ved å tape støtten de hadde. Det jeg er mest opptatt av, er gapet mellom hva som sies om politikk og hva den faktisk gjør. Den analysen kommer sjelden fram i nyhetene.",
   },
   {
     id: "utdanning",
