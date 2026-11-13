@@ -193,7 +193,7 @@ header .link-underline::after {
 .has-drop-cap::first-letter {
   float: left;
   font-family: var(--font-playfair), serif;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--accent-text);
   font-size: 4.6em;
   line-height: 0.82;

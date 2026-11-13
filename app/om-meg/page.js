@@ -54,10 +54,10 @@ export default function OmMegPage() {
               />
             </div>
             <div className="sm:max-w-2xl">
-              <h1 className="font-serif text-[44px] font-black leading-[0.95] tracking-tight sm:text-[54px]">
+              <h1 className="font-serif text-[44px] font-bold leading-[0.95] tracking-tight sm:text-[54px]">
                 Jakob Hake-Steffensen
               </h1>
-              <p className="mt-3 font-serif text-xl italic text-[var(--color-secondary)]">
+              <p className="mt-3 font-serif text-xl text-[var(--color-secondary)]">
                 Statsviter, økonom og forretningsutvikler
               </p>
               <p className="mt-6 text-lg leading-8 text-[var(--color-body)]">

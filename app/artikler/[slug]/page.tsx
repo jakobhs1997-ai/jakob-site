@@ -114,7 +114,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </span>
             ))}
           </p>
-          <h1 className="mt-3 font-serif text-[32px] font-black leading-[1.05] tracking-tight sm:text-[42px] lg:text-[49px]">
+          <h1 className="mt-3 font-serif text-[32px] font-bold leading-[1.05] tracking-tight sm:text-[42px] lg:text-[49px]">
             {article.title}
           </h1>
         </div>

@@ -34,10 +34,10 @@ export default function Home() {
           </a>
           <div className="text-center sm:text-left">
             <span className="mx-auto block h-[2px] w-14 bg-[var(--color-accent)] sm:mx-0" />
-            <h1 className="mt-3 font-serif text-3xl font-black leading-[0.95] tracking-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 font-serif text-3xl font-bold leading-[0.95] tracking-tight sm:text-4xl lg:text-5xl">
               Jakob Hake-Steffensen
             </h1>
-            <p className="mx-auto mt-3 max-w-xs font-serif text-lg italic font-medium leading-snug text-[var(--color-secondary)] sm:mx-0 sm:text-xl">
+            <p className="mx-auto mt-3 max-w-xs font-serif text-lg font-medium leading-snug text-[var(--color-secondary)] sm:mx-0 sm:text-xl">
               <span className="block">Skarp på sammenhenger.</span>
               <span className="block">Opptatt av det som faktisk skjer.</span>
             </p>

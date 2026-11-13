@@ -31,7 +31,7 @@ export default function ArticlesPage() {
           <p className="font-condensed text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-secondary)]">
             Artikler
           </p>
-          <h1 className="mt-4 font-serif text-5xl font-black uppercase tracking-tight sm:text-6xl">
+          <h1 className="mt-4 font-serif text-5xl font-bold uppercase tracking-tight sm:text-6xl">
             Alle artikler
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--color-secondary)]">

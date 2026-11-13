@@ -19,7 +19,7 @@ export default function NotFound() {
         <p className="font-condensed text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-secondary)]">
           404
         </p>
-        <h1 className="mt-4 font-serif text-4xl font-black tracking-tight [text-wrap:balance] sm:text-5xl">
+        <h1 className="mt-4 font-serif text-4xl font-bold tracking-tight [text-wrap:balance] sm:text-5xl">
           Siden finnes ikke
         </h1>
         <p className="mt-4 max-w-xl text-lg text-[var(--color-body)] [text-wrap:pretty]">
