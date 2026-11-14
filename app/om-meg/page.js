@@ -24,7 +24,7 @@ const sections = [
     title: "Utdanning",
     details:
       "Bachelor i statsvitenskap, NTNU. Økonomi og administrasjon, OsloMet.",
-    note: "Statsvitenskap kom først. Deretter økonomi. Det er ikke tilfeldig, men fordi jeg merket at politisk analyse uten forståelse for insentiver fort blir luftig. De to fagene leses bedre sammen enn hver for seg.",
+    note: "Statsvitenskap kom først. Deretter økonomi. Rekkefølgen var ikke tilfeldig: jeg merket at politisk analyse uten forståelse for insentiver fort blir luftig. De to fagene leses bedre sammen enn hver for seg.",
   },
   {
     id: "ferdigheter",
