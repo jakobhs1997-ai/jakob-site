@@ -30,8 +30,8 @@ const sections = [
     id: "ferdigheter",
     title: "Ferdigheter",
     details:
-      "Forretningsutvikling, relasjonsbygging, stakeholder management, strategisk kommunikasjon, prosjektledelse.",
-    note: "Utenom jobben løper jeg, spiller sjakk og lager mat. Jeg tror god tenkning krever friksjon, og at de beste samtalene starter med uenighet.",
+      "Forretningsutvikling, partnerskap, stakeholder management, strategisk kommunikasjon, prosjektledelse.",
+    note: "Jeg løper, spiller sjakk og lager mat. Jeg tror god tenkning krever friksjon, og at de beste samtalene starter med uenighet.",
   },
 ];
 
