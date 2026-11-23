@@ -17,7 +17,7 @@ export default function Header() {
         <Link
           href="/"
           aria-current={pathname === "/" ? "page" : undefined}
-          className="font-serif text-xl font-semibold tracking-tight text-[var(--color-accent)] transition-colors duration-300 ease-soft hover:text-[var(--color-off-white)] sm:text-2xl"
+          className="press font-serif text-xl font-semibold tracking-tight text-[var(--color-accent)] transition-colors duration-300 ease-soft hover:text-[var(--color-off-white)] sm:text-2xl"
         >
           Jakob Hake-Steffensen
         </Link>
@@ -30,7 +30,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={isCurrent ? "page" : isActive ? "true" : undefined}
-                className={`relative pt-1 pb-2 transition-colors duration-300 ease-soft ${
+                className={`press relative pt-1 pb-2 transition-colors duration-300 ease-soft ${
                   isActive
                     ? "text-[var(--color-accent)]"
                     : "link-underline text-[var(--color-off-white)] hover:text-[var(--color-accent)]"

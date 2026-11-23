@@ -22,7 +22,7 @@ export default function ArticlesPage() {
       <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
+          className="press inline-block font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
         >
           ← Forsiden
         </Link>

@@ -19,7 +19,7 @@ export function FeaturedArticle({
   return (
     <Link
       href={`/artikler/${article.slug}`}
-      className={`group block pt-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)] sm:pt-12 ${
+      className={`group press block pt-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)] sm:pt-12 ${
         isCompact
           ? "border-b border-[var(--color-divider)] pb-8 sm:pb-10"
           : "border-b-2 border-[var(--color-foreground)] pb-10 sm:pb-12"
@@ -65,7 +65,7 @@ export function ArticleList({ articles }: { articles: Article[] }) {
           <Link
             key={article.slug}
             href={`/artikler/${article.slug}`}
-            className="group block border-t border-[var(--color-divider)] py-8 last:border-b focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
+            className="group press block border-t border-[var(--color-divider)] py-8 last:border-b focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
           >
             <div className="flex items-baseline justify-between gap-x-6">
               {article.category ? (

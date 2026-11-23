@@ -72,13 +72,13 @@ export default function RootLayout({
               <p className="flex flex-wrap gap-x-4 gap-y-1">
                 <a
                   href="mailto:kontakt@jeycup.com"
-                  className="link-underline text-[var(--color-off-white)] opacity-70 transition-opacity duration-300 ease-soft hover:opacity-100"
+                  className="press link-underline text-[var(--color-off-white)] opacity-70 transition-opacity duration-300 ease-soft hover:opacity-100"
                 >
                   kontakt@jeycup.com
                 </a>
                 <Link
                   href="/personvern"
-                  className="link-underline text-[var(--color-off-white)] opacity-70 transition-opacity duration-300 ease-soft hover:opacity-100"
+                  className="press link-underline text-[var(--color-off-white)] opacity-70 transition-opacity duration-300 ease-soft hover:opacity-100"
                 >
                   Personvern
                 </Link>
@@ -89,7 +89,7 @@ export default function RootLayout({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex items-center justify-center text-[var(--color-off-white)] opacity-70 transition-opacity duration-300 ease-soft hover:opacity-100"
+              className="press inline-flex items-center justify-center text-[var(--color-off-white)] opacity-70 transition-opacity duration-300 ease-soft hover:opacity-100"
             >
               <span className="sr-only">LinkedIn</span>
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true">

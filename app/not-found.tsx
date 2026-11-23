@@ -28,13 +28,13 @@ export default function NotFound() {
         <div className="mt-6 flex gap-8">
           <Link
             href="/"
-            className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)]"
+            className="press link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)]"
           >
             Til forsiden
           </Link>
           <Link
             href="/artikler"
-            className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)]"
+            className="press link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)]"
           >
             Alle artikler
           </Link>

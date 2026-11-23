@@ -21,7 +21,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/jeycup"
             target="_blank"
             rel="noopener noreferrer"
-            className="block h-[152px] w-[152px] flex-shrink-0 cursor-pointer overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition-shadow duration-300 ease-soft hover:ring-2 hover:ring-accent"
+            className="press block h-[152px] w-[152px] flex-shrink-0 cursor-pointer overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition-shadow duration-300 ease-soft hover:ring-2 hover:ring-accent"
           >
             <Image
               src="/jakob.jpg"
@@ -74,7 +74,7 @@ export default function Home() {
           <div className="mt-10 flex justify-end">
             <Link
               href="/artikler"
-              className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
+              className="press link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
             >
               Se alle artikler →
             </Link>
