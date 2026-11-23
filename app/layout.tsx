@@ -58,14 +58,14 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <a
           href="#innhold"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10001] focus:bg-[var(--color-off-white)] focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--color-ink)] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[var(--color-accent)]"
+          className="skip-link sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10001] focus:bg-[var(--color-off-white)] focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--color-ink)]"
         >
           Hopp til innhold
         </a>
         <Header />
         {children}
 
-        <footer className="mt-auto border-t border-[#c9a84c]/30 bg-[var(--color-ink)]">
+        <footer className="mt-auto border-t border-accent/30 bg-[var(--color-ink)]">
           <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-8 sm:px-8 lg:px-12">
             <div className="flex flex-col gap-1 font-condensed text-xs uppercase tracking-[0.15em] text-[var(--color-off-white)]">
               <p className="opacity-70">Jakob Hake-Steffensen</p>

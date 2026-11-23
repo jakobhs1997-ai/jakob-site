@@ -16,21 +16,24 @@ export default function Header() {
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-8 lg:px-12">
         <Link
           href="/"
+          aria-current={pathname === "/" ? "page" : undefined}
           className="font-serif text-xl font-semibold tracking-tight text-[var(--color-accent)] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[var(--color-off-white)] sm:text-2xl"
         >
           Jakob Hake-Steffensen
         </Link>
         <nav className="flex gap-10 font-condensed text-xs font-semibold uppercase tracking-[0.18em]">
           {navItems.map((item) => {
-            const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+            const isCurrent = pathname === item.href;
+            const isActive = isCurrent || pathname?.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`link-underline relative pt-1 pb-2 transition ${
+                aria-current={isCurrent ? "page" : isActive ? "true" : undefined}
+                className={`relative pt-1 pb-2 transition ${
                   isActive
                     ? "text-[var(--color-accent)]"
-                    : "text-[var(--color-off-white)] hover:text-[var(--color-accent)]"
+                    : "link-underline text-[var(--color-off-white)] hover:text-[var(--color-accent)]"
                 }`}
               >
                 {item.label}

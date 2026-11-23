@@ -21,7 +21,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/jeycup"
             target="_blank"
             rel="noopener noreferrer"
-            className="block h-[152px] w-[152px] flex-shrink-0 cursor-pointer overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition hover:ring-2 hover:ring-[#c9a84c]"
+            className="block h-[152px] w-[152px] flex-shrink-0 cursor-pointer overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition hover:ring-2 hover:ring-accent"
           >
             <Image
               src="/jakob.jpg"
