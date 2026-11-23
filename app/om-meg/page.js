@@ -69,7 +69,7 @@ export default function OmMegPage() {
                 </span>
                 <a
                   href="mailto:kontakt@jeycup.com"
-                  className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
+                  className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
                 >
                   kontakt@jeycup.com →
                 </a>
@@ -77,7 +77,7 @@ export default function OmMegPage() {
               <div className="mt-6">
                 <Link
                   href="/"
-                  className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
+                  className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
                 >
                   Tilbake til forsiden
                 </Link>

@@ -27,7 +27,7 @@ export default function PersonvernPage() {
             </h2>
             <p className="mt-3">
               Jakob Hake-Steffensen er behandlingsansvarlig. Kontakt:{" "}
-              <a href="mailto:kontakt@jeycup.com" className="underline underline-offset-2 transition-colors hover:text-[var(--color-foreground)]">
+              <a href="mailto:kontakt@jeycup.com" className="underline underline-offset-2 transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]">
                 kontakt@jeycup.com
               </a>
               .
@@ -85,7 +85,7 @@ export default function PersonvernPage() {
             </h2>
             <p className="mt-3">
               Du kan be om innsyn i, retting av eller sletting av opplysningene dine ved å skrive til{" "}
-              <a href="mailto:kontakt@jeycup.com" className="underline underline-offset-2 transition-colors hover:text-[var(--color-foreground)]">
+              <a href="mailto:kontakt@jeycup.com" className="underline underline-offset-2 transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]">
                 kontakt@jeycup.com
               </a>
               . Du kan også klage til Datatilsynet.

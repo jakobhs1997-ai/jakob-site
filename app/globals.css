@@ -20,6 +20,10 @@
   --error: #9b2c1f; /* 6.67:1 on #f5f0e8 */
 }
 
+@theme {
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -53,6 +57,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -137,7 +147,7 @@ article a::after {
   background-color: var(--accent-text);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 200ms ease-out;
+  transition: transform 300ms var(--ease-soft);
 }
 
 .link-underline:hover::after,

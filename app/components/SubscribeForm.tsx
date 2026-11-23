@@ -55,12 +55,12 @@ export default function SubscribeForm({ title }: { title: string }) {
           placeholder="din@epost.no"
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? "epost-feil" : "epost-hjelp"}
-          className="min-w-0 flex-1 rounded-none border border-[var(--color-field-border)] bg-transparent px-3 py-2 text-base text-[var(--color-foreground)] transition-colors placeholder:text-[var(--color-secondary)] hover:border-[var(--color-foreground)] aria-[invalid=true]:border-[var(--color-error)] aria-[invalid=true]:hover:border-[var(--color-error)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-text)]"
+          className="min-w-0 flex-1 rounded-none border border-[var(--color-field-border)] bg-transparent px-3 py-2 text-base text-[var(--color-foreground)] transition-colors duration-300 ease-soft placeholder:text-[var(--color-secondary)] hover:border-[var(--color-foreground)] aria-[invalid=true]:border-[var(--color-error)] aria-[invalid=true]:hover:border-[var(--color-error)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-text)]"
         />
         <button
           type="submit"
           disabled={pending}
-          className="bg-[var(--color-ink)] px-3 py-2 text-base font-semibold text-[var(--color-off-white)] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] enabled:hover:bg-[var(--color-ink-hover)] active:translate-y-px disabled:cursor-default disabled:opacity-70"
+          className="bg-[var(--color-ink)] px-3 py-2 text-base font-semibold text-[var(--color-off-white)] transition-[color,background-color,transform] duration-300 ease-soft enabled:hover:bg-[var(--color-ink-hover)] active:translate-y-px disabled:cursor-default disabled:opacity-70"
         >
           {pending ? "Sender" : "Få nye artikler"}
         </button>
@@ -79,7 +79,7 @@ export default function SubscribeForm({ title }: { title: string }) {
       ) : (
         <p id="epost-hjelp" className="mt-3 text-sm leading-5 text-[var(--color-secondary)]">
           Ingen spam. Jeg bruker adressen bare til å varsle om nye artikler.{" "}
-          <Link href="/personvern" className="underline underline-offset-2 transition-colors hover:text-[var(--color-foreground)]">
+          <Link href="/personvern" className="underline underline-offset-2 transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]">
             Personvern
           </Link>
         </p>

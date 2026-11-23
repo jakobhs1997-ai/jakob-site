@@ -98,7 +98,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="border-b border-[var(--color-border)] pb-8">
           <Link
             href="/artikler"
-            className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
+            className="font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
           >
             ← Alle artikler
           </Link>
@@ -142,7 +142,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="mt-10 flex justify-end">
           <Link
             href="/artikler"
-            className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition hover:text-[var(--color-foreground)]"
+            className="link-underline font-condensed text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft hover:text-[var(--color-foreground)]"
           >
             ← Alle artikler
           </Link>

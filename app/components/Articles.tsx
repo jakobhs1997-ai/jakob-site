@@ -40,14 +40,14 @@ export function FeaturedArticle({
           isCompact ? "text-[34px] sm:text-[44px]" : "text-4xl sm:text-5xl lg:text-6xl"
         }`}
       >
-        <span className="bg-[linear-gradient(var(--accent-text),var(--accent-text))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-[0.15em] transition-[background-size] duration-200 ease-out motion-reduce:transition-none group-hover:bg-[length:100%_1px] group-focus-visible:bg-[length:100%_1px]">
+        <span className="bg-[linear-gradient(var(--accent-text),var(--accent-text))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-[0.15em] transition-[background-size] duration-300 ease-soft motion-reduce:transition-none group-hover:bg-[length:100%_1px] group-focus-visible:bg-[length:100%_1px]">
           {article.title}
         </span>
       </h2>
       <p className="mt-4 max-w-2xl text-lg leading-7 text-[var(--color-secondary)]">
         {article.summary}
       </p>
-      <span className="mt-3 inline-flex items-center gap-2 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent-text)] transition-colors group-hover:text-[var(--color-foreground)] md:mt-6">
+      <span className="mt-3 inline-flex items-center gap-2 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent-text)] transition-colors duration-300 ease-soft group-hover:text-[var(--color-foreground)] md:mt-6">
         Les artikkel
         <span aria-hidden="true">→</span>
       </span>
@@ -82,7 +82,7 @@ export function ArticleList({ articles }: { articles: Article[] }) {
               ) : null}
             </div>
             <h3 className="mt-4 font-serif text-2xl font-bold tracking-tight text-[var(--color-foreground)] sm:text-3xl">
-              <span className="bg-[linear-gradient(var(--accent-text),var(--accent-text))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-[0.15em] transition-[background-size] duration-200 ease-out motion-reduce:transition-none group-hover:bg-[length:100%_1px] group-focus-visible:bg-[length:100%_1px]">
+              <span className="bg-[linear-gradient(var(--accent-text),var(--accent-text))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-[0.15em] transition-[background-size] duration-300 ease-soft motion-reduce:transition-none group-hover:bg-[length:100%_1px] group-focus-visible:bg-[length:100%_1px]">
                 {article.title}
               </span>
             </h3>
