@@ -119,7 +119,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </h1>
         </div>
 
-        <p className="mt-8 max-w-[34rem] font-serif text-[21px] leading-[1.5] text-[var(--color-body)] sm:mt-10 sm:text-[23px]">
+        <p className="mt-8 max-w-xl text-pretty font-serif text-xl text-[var(--color-body)] sm:mt-10 sm:text-2xl">
           {article.summary}
         </p>
 
