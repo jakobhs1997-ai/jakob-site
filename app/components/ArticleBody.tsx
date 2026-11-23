@@ -76,7 +76,7 @@ export default function ArticleBody({ content }: { content: string }) {
   };
 
   return (
-    <article id="article-body" className="mt-12 max-w-[40rem] space-y-6 sm:mt-14">
+    <article id="article-body" className="mt-12 max-w-[40rem] space-y-6 sm:mt-16">
       <ReactMarkdown components={components}>{content}</ReactMarkdown>
     </article>
   );

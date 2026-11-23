@@ -43,7 +43,7 @@ export default function OmMegPage() {
           <p className="font-condensed text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-secondary)]">
             Om meg
           </p>
-          <div className="mt-5 flex flex-col gap-8 sm:flex-row sm:items-center">
+          <div className="mt-4 flex flex-col gap-8 sm:flex-row sm:items-center">
             <div className="mx-auto flex-shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] sm:mx-0" style={{ width: 200, height: 260 }}>
               <Image
                 src="/jakob.jpg"
@@ -86,7 +86,7 @@ export default function OmMegPage() {
           </div>
         </div>
 
-        <section className="mt-14 divide-y divide-[var(--color-divider)]">
+        <section className="mt-16 divide-y divide-[var(--color-divider)]">
           {sections.map((section) => (
             <div key={section.id} className="py-8 first:pt-0">
               <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-[var(--color-foreground)]">

@@ -21,7 +21,7 @@ export function FeaturedArticle({
       href={`/artikler/${article.slug}`}
       className={`group block pt-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)] sm:pt-12 ${
         isCompact
-          ? "border-b border-[var(--color-divider)] pb-8 sm:pb-9"
+          ? "border-b border-[var(--color-divider)] pb-8 sm:pb-10"
           : "border-b-2 border-[var(--color-foreground)] pb-10 sm:pb-12"
       }`}
     >
@@ -44,10 +44,10 @@ export function FeaturedArticle({
           {article.title}
         </span>
       </h2>
-      <p className="mt-5 max-w-2xl text-lg leading-7 text-[var(--color-secondary)]">
+      <p className="mt-4 max-w-2xl text-lg leading-7 text-[var(--color-secondary)]">
         {article.summary}
       </p>
-      <span className="mt-3 inline-flex items-center gap-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent-text)] transition-colors group-hover:text-[var(--color-foreground)] md:mt-6">
+      <span className="mt-3 inline-flex items-center gap-2 font-condensed text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-accent-text)] transition-colors group-hover:text-[var(--color-foreground)] md:mt-6">
         Les artikkel
         <span aria-hidden="true">→</span>
       </span>
